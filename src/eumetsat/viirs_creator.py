@@ -173,6 +173,8 @@ def create_tie_points_grid(geo_file):
     in_sat_za = geo_out['SatelliteZenithAngle']
     in_sat_aa = geo_out['SatelliteAzimuthAngle']
     
+    out_sat_height = geo_out['Height']
+    
     l = 0
     p = 0
     for l, line_i in enumerate(lines):
@@ -189,7 +191,7 @@ def create_tie_points_grid(geo_file):
             
             out_sat_aa[l][p] = in_sat_aa[line_i-1][pixel_i-1]
             
-    return out_lat, out_lon, out_sol_za, out_sol_aa, out_sat_za, out_sat_aa
+    return out_lat, out_lon, out_sol_za, out_sol_aa, out_sat_za, out_sat_aa, out_sat_height
             
     
 def extract_geo_spatial_data(out, geo_file):
@@ -205,6 +207,7 @@ def extract_geo_spatial_data(out, geo_file):
     
     out['Latitude']              = lat[:]
     out['Longitude']             = lon[:]
+    out['Height']                = geo_file['All_Data']['VIIRS-MOD-GEO_All']['Height'][:]
     out['SolarZenithAngle']      = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SolarZenithAngle'][:]
     out['SolarAzimuthAngle']     = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SolarAzimuthAngle'][:]
     out['SatelliteZenithAngle']  = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SatelliteZenithAngle'][:]
@@ -263,11 +266,18 @@ def create_aggregated_viirs_dataset():
     i16 = numpy.dtype('<i2')
     
     #extract tie-points grid params
-    (out_lat, out_lon, out_sol_za, out_sol_aa, out_sat_za, out_sat_aa)      = create_tie_points_grid(geo_file)
+    (out_lat, out_lon, out_sol_za, out_sol_aa, out_sat_za, out_sat_aa, out_height) = create_tie_points_grid(geo_file)
     output_file.create_dataset('Latitude', data = out_lat.astype('float32'), dtype = f32)
     output_file.create_dataset('Longitude', data = out_lat.astype('float32'), dtype = f32)
     
    
+    
+    # convert height to i16
+    numpy.around(out_height, 2, out_height)
+    out_height = out_height * 100
+    out_height = out_height.astype('int16')
+    print("out_height min %d, max %d , range %d\n" % (numpy.min(out_height), numpy.max(out_height), (numpy.max(out_height)- numpy.min(out_height)) ))
+    output_file.create_dataset('Height', data = out_height.astype('int16'), dtype = i16)
     
     
     # convert solar zenith angle  => Range 0-180
@@ -293,7 +303,6 @@ def create_aggregated_viirs_dataset():
     out_sat_aa = out_sat_aa * 100
     out_sat_aa = out_sat_aa.astype('int16')
     print("out_sat_aa min %d, max %d , range %d\n" % (numpy.min(out_sat_aa), numpy.max(out_sat_aa), (numpy.max(out_sat_aa)- numpy.min(out_sat_aa)) ))
-    
     
     output_file.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = ui16)
     output_file.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = i16)
