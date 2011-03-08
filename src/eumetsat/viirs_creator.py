@@ -9,9 +9,58 @@ import random
 import numpy
 import sys
 import h5py
+import csv 
 
 import eumetsat.common.num_utils as num_utils
 import eumetsat.common.filesystem_utils as fs_utils
+
+def extract_rest_of_flag(rad_name, rad_num, a_out, a_in):
+    """ extract all the quality flags """
+    
+    print("Extract quality flags for %s \n" % (os.path.basename(a_in.filename)))
+    
+    data_dir = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num) ]
+    
+    a_out["ModeGran_%s" % (rad_name)]              = data_dir["ModeGran"][:]
+    a_out["ModeScan_%s" % (rad_name)]              = data_dir["ModeScan"][:]
+    a_out["NumberOfBadChecksums_%s" % (rad_name)]  = data_dir["NumberOfBadChecksums"][:]
+    a_out["NumberOfDiscardedPkts_%s" % (rad_name)] = data_dir["NumberOfDiscardedPkts"][:]
+    a_out["NumberOfMissingPkts_%s" % (rad_name)]   = data_dir["NumberOfMissingPkts"][:]
+    a_out["NumberOfScans_%s" % (rad_name)]         = data_dir["NumberOfScans"][:] 
+    a_out["PadByte1_%s" % (rad_name)]              = data_dir["PadByte1"][:]
+    a_out["QF1_VIIRSMBANDSDR_%s" % (rad_name)]     = data_dir["QF1_VIIRSMBANDSDR"][:] 
+    a_out["QF2_SCAN_SDR_%s" % (rad_name)]          = data_dir["QF2_SCAN_SDR"][:] 
+    a_out["QF3_SCAN_RDR_%s" % (rad_name)]          = data_dir["QF3_SCAN_RDR"][:] 
+    a_out["QF4_SCAN_SDR_%s" % (rad_name)]          = data_dir["QF4_SCAN_SDR"][:] 
+    a_out["QF5_GRAN_BADDETECTOR_%s" % (rad_name)]  = data_dir["QF5_GRAN_BADDETECTOR"][:] 
+    
+def create_csv(filepath, array, x_dim, y_dim):
+    """ create a csv file with the array values """
+    
+    csv_writer =  csv.writer(open(filepath, 'wb'), delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    
+    for y in xrange(0,y_dim):
+        r = array[y]
+        row = [r[x] for x in xrange(0,x_dim)]
+            
+        csv_writer.writerow(row)
+    
+    
+def plot(a_array):
+    """ plot the following data """
+    import matplotlib.mlab as mlab
+    import matplotlib.pyplot as plt
+    
+    # the histogram of the data
+    n, bins, patches = plt.hist(a_array)
+    
+    
+    plt.grid(True)
+
+    plt.show()
+
+
+
 
 def extract_radiance(a_out, a_in):
     """ extract the radiance from the existing file and create a radiance and radiance_factor param """
@@ -37,13 +86,48 @@ def extract_radiance(a_out, a_in):
         pass
     
     # quick test convert radiance to uint16 (don't care of the value or the moment)
-    if rad_num in ('3','4','5','7','13'):
-        a_out["Radiance_%s" % (rad_name)] = load_array(radiance).astype('uint16')
+    #if rad_num in ('3','4','5','7','13'):
+    #    a_out["Radiance_%s" % (rad_name)] = load_array(radiance).astype('uint16')
+    #else:
+    f32 = numpy.dtype('<f4')
+    # chunks=(100,100) shuffle=True compression='gzip', compression_opts=4 shuffle=True, chunks=(500,500), shuffle=True
+    print("dtype = %s\n." %(radiance.dtype))
+    
+    name = "Radiance_%s" % (rad_name)
+    
+    if radiance.dtype == '>f4':
+        print("In there")
+        a_out.create_dataset(name, data=radiance[:], dtype = radiance.dtype)
+        #create_csv("/tmp/%s.csv" % (name), radiance, 3200, 768)
+        
+        def ignore_float(x):
+            if x < -990:
+                return True
+            else:
+                return False
+        
+        
+        #get_min_max(name, radiance, 768, 3200, ignore_float)
+        plot(radiance)
+        
+    #print("chunk = %s compression = %s\n" % (a_out["RadianceFactors_%s" % (rad_name)].chunks, a_out["RadianceFactors_%s" % (rad_name)].compression))
+    #print("dtype = %s. chunk = %s compression = %s. dir(radiance) = %s\n" % (radiance.dtype, radiance.chunks, radiance.compression, dir(radiance)))
     else:
-        a_out["Radiance_%s" % (rad_name)] = radiance[:]
+        
+        def ignore_uint(x):
+            if x > 65530 :
+                return True
+            else:
+                return False
+        
+        a_out[name] = radiance[:]
+        #get_min_max(name, radiance, 768, 3200, ignore_uint)
     
     if radiance_factors:
         a_out["RadianceFactors_%s" % (rad_name)] = radiance_factors[:]
+        
+    # extract rest of the flag
+    extract_rest_of_flag(rad_name, rad_num, a_out, a_in)
     
     return radiance, radiance_factors
 
@@ -79,8 +163,22 @@ def load_array(ds):
     a[:] = ds[:]
     return a
 
+def get_min_max(name, geo_info,x_dim,y_dim, ignore):
+    """ compute variations """
+    
+    #load into a numpy array
+    flatten_info = load_array(geo_info)
 
-def compute_variation(geo_info,x_dim,y_dim):
+    
+    flatten_info = flatten_info.reshape(x_dim*y_dim)
+    
+    flatten_info = [x for x in flatten_info if not ignore(x)]
+    
+    print("min %f - max %f" % (min(flatten_info),max(flatten_info)))
+    print("***************\n")
+
+
+def compute_geo_variation(name, geo_info,x_dim,y_dim):
     """ compute variations """
     
     #load into a numpy array
@@ -101,7 +199,9 @@ def compute_variation(geo_info,x_dim,y_dim):
         #if icpt == 800:
         #   return
     
+    print("Variations for %s" %(name))
     print("min variation %f - max variation %f" % (min(variations),max(variations)))
+    print("***************\n")
 
 def create_tie_points_grid_indexes():
     """ Create the indexes.
@@ -192,6 +292,22 @@ def create_tie_points_grid(geo_file):
             out_sat_aa[l][p] = in_sat_aa[line_i-1][pixel_i-1]
             
     return out_lat, out_lon, out_sol_za, out_sol_aa, out_sat_za, out_sat_aa, out_sat_height
+
+
+def extract_extra_geo_spatial_info(out, geo_file):
+    """ extract the rest of the geospatial info """
+    
+     # add the rest 
+    out['MidTime']               = geo_file['All_Data']['VIIRS-MOD-GEO_All']['MidTime'][:]
+    out['ModeGran_Geo']          = geo_file['All_Data']['VIIRS-MOD-GEO_All']['ModeGran'][:]
+    out['ModeScan_Geo']          = geo_file['All_Data']['VIIRS-MOD-GEO_All']['ModeScan'][:]
+    out['NumberOfScans_Geo']     = geo_file['All_Data']['VIIRS-MOD-GEO_All']['NumberOfScans'][:]
+    out['PadByte1_Geo']          = geo_file['All_Data']['VIIRS-MOD-GEO_All']['PadByte1'][:]
+    out['QF1_SCAN_VIIRS_SDRGEO'] = geo_file['All_Data']['VIIRS-MOD-GEO_All']['QF1_SCAN_VIIRSSDRGEO'][:]
+    out['QF2_VIIRSSDRGEO']       = geo_file['All_Data']['VIIRS-MOD-GEO_All']['QF2_VIIRSSDRGEO'][:]
+    out['StartTime']             = geo_file['All_Data']['VIIRS-MOD-GEO_All']['StartTime'][:]
+    
+    
             
     
 def extract_geo_spatial_data(out, geo_file):
@@ -212,6 +328,9 @@ def extract_geo_spatial_data(out, geo_file):
     out['SolarAzimuthAngle']     = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SolarAzimuthAngle'][:]
     out['SatelliteZenithAngle']  = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SatelliteZenithAngle'][:]
     out['SatelliteAzimuthAngle'] = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SatelliteAzimuthAngle'][:]
+    
+   
+    
     
     
 def create_aggregated_viirs_dataset():
@@ -308,6 +427,8 @@ def create_aggregated_viirs_dataset():
     output_file.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = i16)
     output_file.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = ui16)
     output_file.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = i16)
+    
+    extract_extra_geo_spatial_info(output_file, geo_file)
     
     #output_file.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = f32)
     #output_file.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = f32)
