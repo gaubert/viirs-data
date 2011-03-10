@@ -46,18 +46,38 @@ def create_csv(filepath, array, x_dim, y_dim):
         csv_writer.writerow(row)
     
     
-def plot(a_array):
+def plot(name, a_array, x_dim, y_dim):
     """ plot the following data """
     import matplotlib.mlab as mlab
     import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_pdf import PdfPages
+    
+    
+    flat_array = load_array(a_array)
+    
+    
+    #flat_array = numpy.transpose(flat_array)
+    def ignore(x):
+            if x < -990 or x > 65530:
+                return True
+            else:
+                return False
+    
+    # transform 2d array in 1d
+    flat_array = flat_array.reshape(x_dim*y_dim)
+    
+    flat_array = [x for x in flat_array if not ignore(x)]
+    
     
     # the histogram of the data
-    n, bins, patches = plt.hist(a_array)
-    
+    #n, bins, patches = plt.hist(flat_array, orientation='vertical')
+    plt.plot(flat_array,',')
     
     plt.grid(True)
 
-    plt.show()
+    #plt.show()
+    pp = PdfPages('/tmp/%s_multipage.pdf' % (name))
+    plt.savefig(pp, format='pdf')
 
 
 
@@ -108,7 +128,7 @@ def extract_radiance(a_out, a_in):
         
         
         #get_min_max(name, radiance, 768, 3200, ignore_float)
-        plot(radiance)
+        plot(name, radiance,768, 3200)
         
     #print("chunk = %s compression = %s\n" % (a_out["RadianceFactors_%s" % (rad_name)].chunks, a_out["RadianceFactors_%s" % (rad_name)].compression))
     #print("dtype = %s. chunk = %s compression = %s. dir(radiance) = %s\n" % (radiance.dtype, radiance.chunks, radiance.compression, dir(radiance)))
