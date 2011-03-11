@@ -30,7 +30,16 @@ def float_to_hex(a_float):
     hexa = ''.join('%2.2x' % ord(c) for c in s)
     return hex2bin(hexa)
 
-
+def decomposed_rep_float_to_bin(a_float):
+    """ decompose the representation """
+    
+    s_res = float_to_bin(a_float)
+    return { "sign"          : s_res[0], 
+             "exponent"      : s_res[1:9], 
+             "mantissa"      : s_res[9:], 
+             "bias"          : "127",
+             "real_mantissa" : "1%s" %(s_res[9:]),
+             "formula"       : "(-1)^s * 2^(exp-127) * (01.mant) if 0 < e < 255"}
 
 if __name__ == '__main__':
                                      
