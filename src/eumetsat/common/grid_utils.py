@@ -33,9 +33,6 @@ def distance_array(lat1_arr, lon1_arr, lat2_arr, lon2_arr):
     
     return results
 
-
-
-
 if __name__ == '__main__':
     
     new_lat_lsasaf_path      = '/tmp/N_LSASAF_LAT_M02_20110202193403.hdf5'

@@ -1,0 +1,199 @@
+netcdf GOME_NETCDF4 {
+
+group: MeasurementInfo {
+
+dimensions:
+    time                    = 1;
+	pixels_4_itime_1.5       = 4;
+	pixels_4_itime_6         = 1;
+	pixels_4_itime_0.1875    = 32;
+	pixels_4_itime_0.0234375 = 256;
+	corners                  = 4; // nb of corners
+    // number of elements per bands
+	rec_band_1A              = 659;  // seems to be fix for all band_1A recs if not they should be defined locally in each group
+	rec_band_1B              = 365;  // same
+	rec_band_2A              = 71;   // same
+	rec_band_2B              = 953;  // same
+	rec_band_3               = 1024; // same
+	rec_band_4               = 1024; // same
+	rec_band_5               = 15;   // same
+	rec_band_6               = 15;   // same
+	rec_band_shortPS         = 20;   // same
+	rec_band_shortPP         = 20;   // same
+
+    group: MDR_01 {
+	   dimensions:
+	      itimes      = 2; // number of integration times for this group
+		  unknown_dim = 3; // do not know why it is always 3
+
+	   variables:
+		  int start_time(time) ;
+			start_time:long_name = "reference time of a MDR" ;
+			start_time:units     = "seconds since 1971 (epoc time)" ;
+
+		  int end_time(time) ;
+			end_time:long_name = "reference time of a MDR" ;
+			end_time:units     = "seconds since 1971 (epoc time)" ;
+
+	      float itimes(itimes); // integration times
+	            itimes:long_name = "integration times";
+				itimes:units     = "seconds" ;
+				itimes:_FillValue = -999 ;
+                itimes:valid_min = -127b ;
+                itimes:valid_max = 127b ;
+
+
+	      float scanner_angle(itimes, pixels_4_itime_0.1875); // take the max of nb pixels for all possible integration times, need to use invalid values for not existing values
+	            scanner_angle:long_name  = "scanner angle";
+			    scanner_angle:units      = "degrees" ;
+				scanner_angle:_FillValue = -999 ; 
+				scanner_angle:valid_min  = -180 ; // QC values (example, not the right values)
+				scanner_angle:valid_max  = 180  ; // QC values (example, not the right values)
+
+	      
+		  float corners(itimes, corners, pixels_4_itime_0.1875); // take the max of nb pixels for all possible integration times, need to use invalid values for not existing values
+		        corners:long_name   = "pixel corners";
+			    corners:units       = "degrees";
+				corners:_FillValue  = -999;
+	            corners:valid_min   = -180; // QC values (example, not the right values) 
+	            corners:valid_max   = 180; // QC values (example, not the right values) 
+
+	   	  float centers(itimes, pixels_4_itime_0.1875); // take the max of nb pixels for all possible integration times, need to use invalid values for not existing values (here it is 32 values)
+		        corners:long_name   = "pixel centre";
+			    corners:units       = "degrees";
+				corners:_FillValue  = -999;
+	            corners:valid_min   = -180; // QC values (example, not the right values) 
+	            corners:valid_max   = 180; // QC values (example, not the right values) 
+
+		  float solar_zenith(itimes, unknown_dim, pixels_4_itime_0.1875); // same take the max possible number of pixels for all possible integration times (here 32 values)
+	            solar_zenith:long_name  = "solar zenith";
+				solar_zenith:units      = "degrees";
+				solar_zenith:_FillValue = -999;
+	            solar_zenith:valid_min  = -180; // QC values (example, not the right values) 
+	            solar_zenith:valid_max  = 180; // QC values (example, not the right values) 
+
+		  float wavelength_1A(rec_band_1A);
+	            wavelength_1A:long_name  = "wavelength values for band 1A";
+				wavelength_1A:units      = "nm";  
+				wavelength_1A:_FillValue = -9999; // TBD
+				wavelength_1A:valid_min  = 0; // TBD 
+				wavelength_1A:valid_max  = 0; // TBD 
+
+		  float band_1A(pixels_4_itime_1.5,rec_band_1A); //a band is nb of pixels * nb of measures in a record
+	            band_1A:long_name  = "measures for band 1A";
+				band_1A:units      = "BU";  // TBD
+				band_1A:_FillValue = -9999; // TBD
+				band_1A:valid_min  = 0; // TBD 
+				band_1A:valid_max  = 0; // TBD 
+
+		  float wavelength_1B(rec_band_1B);
+	            wavelength_1B:long_name  = "wavelength values for band 1B";
+				wavelength_1B:units      = "nm";  
+				wavelength_1B:_FillValue = -9999; // TBD
+				wavelength_1B:valid_min  = 0; // TBD 
+				wavelength_1A:valid_max  = 0; // TBD 
+
+		  float band_1B(pixels_4_itime_0.1875,rec_band_1B); //a band is nb of pixels * nb of measures in a record
+	            band_1B:long_name  = "measures for band 1B";
+				band_1B:units      = "BU";  // TBD
+				band_1B:_FillValue = -9999; // TBD
+				band_1B:valid_min  = 0; // TBD 
+				band_1B:valid_max  = 0; // TBD 
+    } // group MDR number 1
+
+    group: MDR_02 {
+	   dimensions:
+	      itimes      = 2; // internal integration time
+		  unknown_dim = 3; // do not know why it is always 3
+
+	   variables:
+		  int start_time(time) ;
+			start_time:long_name = "reference time of a MDR" ;
+			start_time:units     = "seconds since 1971 (epoc time)" ;
+
+		  int end_time(time) ;
+			end_time:long_name = "reference time of a MDR" ;
+			end_time:units     = "seconds since 1971 (epoc time)" ;
+
+	      float itimes(itimes);
+	            itimes:long_name = "integration times";
+				itimes:units     = "seconds" ;
+				itimes:_FillValue = -999 ;
+                itimes:valid_min = -127b ;
+                itimes:valid_max = 127b ;
+
+
+	      float scanner_angle(itimes, pixels_4_itime_0.1875); // take the max of nb pixels for all possible integration times, need to use invalid values for not existing values
+	            scanner_angle:long_name  = "scanner angle";
+			    scanner_angle:units      = "degrees" ;
+				scanner_angle:_FillValue = -999 ; 
+				scanner_angle:valid_min  = -180 ; // QC values (example, not the right values)
+				scanner_angle:valid_max  = 180  ; // QC values (example, not the right values)
+
+	      
+		  float corners(itimes, corners, pixels_4_itime_0.1875); // take the max of nb pixels for all possible integration times, need to use invalid values for not existing values
+		        corners:long_name   = "pixel corners";
+			    corners:units       = "degrees";
+				corners:_FillValue  = -999;
+	            corners:valid_min   = -180; // QC values (example, not the right values) 
+	            corners:valid_max   = 180; // QC values (example, not the right values) 
+
+	   	  float centers(itimes, pixels_4_itime_0.1875); // take the max of nb pixels for all possible integration times, need to use invalid values for not existing values (here it is 32 values)
+		        corners:long_name   = "pixel centre";
+			    corners:units       = "degrees";
+				corners:_FillValue  = -999;
+	            corners:valid_min   = -180; // QC values (example, not the right values) 
+	            corners:valid_max   = 180; // QC values (example, not the right values) 
+
+		  float solar_zenith(itimes, unknown_dim, pixels_4_itime_0.1875); // same take the max possible number of pixels for all possible integration times (here 32 values)
+	            solar_zenith:long_name  = "solar zenith";
+				solar_zenith:units      = "degrees";
+				solar_zenith:_FillValue = -999;
+	            solar_zenith:valid_min  = -180; // QC values (example, not the right values) 
+	            solar_zenith:valid_max  = 180; // QC values (example, not the right values) 
+
+		  float wavelength_1A(rec_band_1A);
+	            wavelength_1A:long_name  = "wavelength values for band 1A";
+				wavelength_1A:units      = "nm";  
+				wavelength_1A:_FillValue = -9999; // TBD
+				wavelength_1A:valid_min  = 0; // TBD 
+				wavelength_1A:valid_max  = 0; // TBD 
+
+		  float band_1A(pixels_4_itime_1.5,rec_band_1A); //a band is nb of pixels * nb of measures in a record
+	            band_1A:long_name  = "measures for band 1A";
+				band_1A:units      = "BU";  // TBD
+				band_1A:_FillValue = -9999; // TBD
+				band_1A:valid_min  = 0; // TBD 
+				band_1A:valid_max  = 0; // TBD 
+
+		  float wavelength_1B(rec_band_1B);
+	            wavelength_1B:long_name  = "wavelength values for band 1B";
+				wavelength_1B:units      = "nm";  
+				wavelength_1B:_FillValue = -9999; // TBD
+				wavelength_1B:valid_min  = 0; // TBD 
+				wavelength_1A:valid_max  = 0; // TBD 
+
+		  float band_1B(pixels_4_itime_0.1875,rec_band_1B); //a band is nb of pixels * nb of measures in a record
+	            band_1B:long_name  = "measures for band 1B";
+				band_1B:units      = "BU";  // TBD
+				band_1B:_FillValue = -9999; // TBD
+				band_1B:valid_min  = 0; // TBD 
+				band_1B:valid_max  = 0; // TBD 
+    } // group MDR number 2
+
+    // create 30 groups one for each MDRs (28 to go)
+
+  } // group MeasurementInfo
+
+// global attributes:
+ :Conventions = "CF-1.0" ;
+ :title = "GOME ..." ;
+ :DSD_entry_id = "" ;
+ :references = "N/A" ;
+ :institution = "EUMETSAT:copyright 2011 EUMETSAT" ;
+ :contact = "Eumetsat help desk at http://www.eumetsat.int" ;
+ :netcdf_version_id = "netcdf library version 4.1.1 of Dec  2 2010 14:09:08" ;
+ :creation_date = "2011-04-29" ;
+ :product_version = "0.2" ;
+
+}
