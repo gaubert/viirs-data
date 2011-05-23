@@ -1,0 +1,1 @@
+ncgen -k 3 -o o.nc netcdf4-GOME-SES.cdl
