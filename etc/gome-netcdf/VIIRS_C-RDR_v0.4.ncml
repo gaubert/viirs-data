@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2 http://www.unidata.ucar.edu/schemas/netcdf/ncml-2.2.xsd">
+    <attribute name="acknowledgment" type="string" value = "TBD" />
+    <attribute name="cdm_data_type" type="string" value = "SWATH" />
+    <attribute name="comment" type="string" value = "TBD" />
+    <attribute name="contributor_name" type="string" value = "TBD" />
+    <attribute name="contributor_role" type="string" value = "TBD" />
+    <attribute name="creator_email" type="string" value = "TBD" />
+    <attribute name="creator_name" type="string" value = "TBD" />
+    <attribute name="creator_url" type="string" value = "TBD" />
+    <attribute name="date_created" type="string" value = "TBD" />
+    <attribute name="date_issued" type="string" value = "TBD" />
+    <attribute name="date_modified" type="string" value = "TBD" />
+    <attribute name="geospatial_lat_max" type="double" value = "0" />
+    <attribute name="geospatial_lat_min" type="double" value = "0" />
+    <attribute name="geospatial_lon_max" type="double" value = "0" />
+    <attribute name="geospatial_lon_min" type="double" value = "0" />
+    <attribute name="history" type="string" value = "TBD" />
+    <attribute name="id" type="string" value = "TBD" />
+    <attribute name="institution" type="string" value = "NCDC" />
+    <attribute name="keywords" type="string" value = "TBD" />
+    <attribute name="keywords_vocabulary" type="string" value = "TBD" />
+    <attribute name="license" type="string" value = "TBD" />
+    <attribute name="Metadata_Conventions" type="string" value = "TBD" />
+    <attribute name="Metadata_Link" type="string" value = "TBD" />
+    <attribute name="naming_authority" type="string" value = "TBD" />
+    <attribute name="processing_level" type="string" value = "TBD" />
+    <attribute name="project" type="string" value = "JPSS" />
+    <attribute name="publisher_email" type="string" value = "TBD" />
+    <attribute name="publisher_name" type="string" value = "TBD" />
+    <attribute name="publisher_url" type="string" value = "TBD" />
+    <attribute name="summary" type="string" value = "TBD" />
+    <attribute name="time_coverage_end" type="string" value = "TBD" />
+    <attribute name="time_coverage_start" type="string" value = "TBD" />
+    <attribute name="title" type="string" value = "TBD" />
+    <attribute name="Ascending_Descending_Indicator" type="string" value = "xxxxxxxxxx" />
+    <attribute name="Auxiliary_and_Ancillary_Data_File_IDs" type="string" value = "TBD" />
+    <attribute name="Beginning_Orbit_Number" type="int" value = "0" />
+    <attribute name="Beginning_Time_IET" type="double" value = "0" />
+    <attribute name="Day_Night_Flag" type="string" value = "xxxxx" />
+    <attribute name="Ending_Orbit_Number" type="int" value = "0" />
+    <attribute name="Ending_Time_IET" type="double" value = "0" />
+    <attribute name="G-Ring_Latitudes" type="double" value = "0.0 0.0 0.0 0.0 0.0" />
+    <attribute name="G-Ring_Longitudes" type="double" value = "0.0 0.0 0.0 0.0 0.0" />
+    <attribute name="Input_RDR_Granule_IDs" type="string" value = "NPPnnnnnnnnnnnnn NPPnnnnnnnnnnnnn NPPnnnnnnnnnnnnn NPPnnnnnnnnnnnnn" />
+    <attribute name="Input_RDR_Granule_Versions" type="string" value = "xx xx xx xx" />
+    <attribute name="Input_RDR_Reference_IDs" type="string" value = "nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn" />
+    <attribute name="Input_Support_File_IDs" type="string" value = "TBD" />
+    <attribute name="Instrument" type="string" value = "VIIRS" />
+    <attribute name="Instrument_Flight_Software_Version" type="string" value = "TBD" />
+    <attribute name="LEOA_Flag" type="string" value = "xxxxx" />
+    <attribute name="Nadir_Latitude_Max" type="double" value = "0" />
+    <attribute name="Nadir_Latitude_Min" type="double" value = "0" />
+    <attribute name="Nadir_Longitude_Max" type="double" value = "0" />
+    <attribute name="Nadir_Longitude_Min" type="double" value = "0" />
+    <attribute name="NPP_Processing_Domain_ID" type="string" value = "xxxx" />
+    <attribute name="NPP_Software_IDs" type="string" value = "TBD" />
+    <attribute name="NPP_Software_Version" type="string" value = "xxx.xx.xx.xx.xx" />
+    <attribute name="Number_Of_Scans" type="int" value = "0" />
+    <attribute name="Operational_Mode" type="string" value = "TBD" />
+    <attribute name="Percent_Erroneous_Data" type="double" value = "0" />
+    <attribute name="Percent_Missing_Data" type="double" value = "0" />
+    <attribute name="Percent_Not-Applicable_Data" type="double" value = "0" />
+    <attribute name="Platform" type="string" value = "NPP" />
+    <attribute name="Processing_Software_ID" type="string" value = "TBD" />
+    <attribute name="Processing_Software_Version" type="string" value = "TBD" />
+    <attribute name="Quality_Summary_Names" type="string" value = "TBD" />
+    <attribute name="Quality_Summary_Values" type="string" value = "TBD" />
+    <attribute name="Reference_Documents" type="string" value = "TBD" />
+    <attribute name="Satellite_Local_Azimuth_Angle_Max" type="double" value = "0" />
+    <attribute name="Satellite_Local_Azimuth_Angle_Min" type="double" value = "0" />
+    <attribute name="Satellite_Local_Zenith_Angle_Max" type="double" value = "0" />
+    <attribute name="Satellite_Local_Zenith_Angle_Min" type="double" value = "0" />
+    <attribute name="Solar_Azimuth_Angle_Max" type="double" value = "0" />
+    <attribute name="Solar_Azimuth_Angle_Min" type="double" value = "0" />
+    <attribute name="Solar_Zenith_Angle_Max" type="double" value = "0" />
+    <attribute name="Solar_Zenith_Angle_Min" type="double" value = "0" />
+    <attribute name="Spacecraft_Maneuver" type="string" value = "TBD" />
+    <dimension name="scans" length="0" isUnlimited="true" />
+    <group name="375m_Image">
+        <dimension name="band" length="5" isUnlimited="false" />
+        <dimension name="along_track" length="0" isUnlimited="true" />
+        <dimension name="along_scan" length="6400" isUnlimited="false" />
+        <dimension name="calib_source" length="3" isUnlimited="false" />
+        <dimension name="cal_samples" length="96" isUnlimited="false" />
+        <variable name="band" shape="band" type="string">
+            <values separator=" ">I1 I2 I3 I4 I5</values>
+        </variable>
+        <variable name="calib_source" shape="calib_source" type="string">
+            <values separator=" ">sv bb sd</values>
+        </variable>
+        <variable name="start_of_data" shape="band scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan start" />
+            <attribute name="source" type="string" value = "APID818:TimeOfDayStartOfData, APID819:TimeOfDayStartOfData, APID820:TimeOfDayStartOfData, APID813:TimeOfDayStartOfData, APID817:TimeOfDayStartOfData" />
+        </variable>
+        <variable name="scan_terminus" shape="band scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan terminus" />
+            <attribute name="source" type="string" value = "APID818:ScanTerminus, APID819:ScanTerminus, APID820:ScanTerminus, APID813:ScanTerminus, APID817:ScanTerminus" />
+        </variable>
+        <variable name="earthview_band_control_word" shape="band scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Earth view Band Control Word" />
+            <attribute name="source" type="string" value = "APID818:BandControlWord, APID819:BandControlWord, APID820:BandControlWord, APID813:BandControlWord, APID817:BandControlWord" />
+        </variable>
+        <variable name="calibview_band_control_word" shape="band scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Calibration view Band Control Word" />
+            <attribute name="source" type="string" value = "APID825:BandControlWord (for each included band)" />
+        </variable>
+        <variable name="earthview" shape="band along_track along_scan" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the Earth view for Image bands 1-5" />
+            <attribute name="source" type="string" value = "APID818, APID819, APID820, APID813, APID817" />
+        </variable>
+        <variable name="calibview" shape="band calib_source along_track cal_samples" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the space view, black body, and solar diffuser for Image bands 1-5" />
+            <attribute name="source" type="string" value = "APID825" />
+        </variable>
+    </group>
+    <group name="750m_DualGain_Image">
+        <dimension name="band" length="7" isUnlimited="false" />
+        <dimension name="along_track" length="0" isUnlimited="true" />
+        <dimension name="along_scan" length="6304" isUnlimited="false" />
+        <dimension name="calib_source" length="3" isUnlimited="false" />
+        <dimension name="cal_samples" length="48" isUnlimited="false" />
+        <variable name="band" shape="band" type="string">
+            <values separator=" ">M1 M2 M3 M4 M5 M7 M13</values>
+        </variable>
+        <variable name="calib_source" shape="calib_source" type="string">
+            <values separator=" ">sv bb sd</values>
+        </variable>
+        <variable name="start_of_data" shape="band scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan start" />
+            <attribute name="source" type="string" value = "APID804:TimeOfDayStartOfData, APID803:TimeOfDayStartOfData, APID802:TimeOfDayStartOfData, APID800:TimeOfDayStartOfData, APID801:TimeOfDayStartOfData, APID806:TimeOfDayStartOfData, APID811:TimeOfDayStartOfData" />
+        </variable>
+        <variable name="scan_terminus" shape="band scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan terminus" />
+            <attribute name="source" type="string" value = "APID804:ScanTerminus, APID803:ScanTerminus, APID802:ScanTerminus, APID800:ScanTerminus, APID801:ScanTerminus, APID806:ScanTerminus, APID811:ScanTerminus" />
+        </variable>
+        <variable name="earthview_band_control_word" shape="band scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Earth view Band Control Word" />
+            <attribute name="source" type="string" value = "APID804:BandControlWord, APID803:BandControlWord, APID802:BandControlWord, APID800:BandControlWord, APID801:BandControlWord, APID806:BandControlWord, APID811:BandControlWord" />
+        </variable>
+        <variable name="calibview_band_control_word" shape="band scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Calibration view Band Control Word" />
+            <attribute name="source" type="string" value = "APID825:BandControlWord (for each included band)" />
+        </variable>
+        <variable name="earthview" shape="band along_track along_scan" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the Earth view for Moderate dual gain bands 1-5, 7, 13" />
+            <attribute name="source" type="string" value = "APID804, APID803, APID802, APID800, APID801, APID806, APID811" />
+        </variable>
+        <variable name="earthview_gain" shape="band along_track along_scan" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "248" />
+            <attribute name="long_name" type="string" value = "Gain state from the Earth view for Moderate dual gain bands 1-5, 7, 13" />
+            <attribute name="source" type="string" value = "APID804, APID803, APID802, APID800, APID801, APID806, APID811" />
+        </variable>
+        <variable name="calibview" shape="band calib_source along_track cal_samples" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the space view, black body, and solar diffuser for Moderate dual gain bands 1-5, 7, 13" />
+            <attribute name="source" type="string" value = "APID825" />
+        </variable>
+        <variable name="calibview_gain" shape="band calib_source along_track cal_samples" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "248" />
+            <attribute name="long_name" type="string" value = "Gain state from the space view, black body, and solar diffuser for Moderate dual gain bands 1-5, 7, 13" />
+            <attribute name="source" type="string" value = "APID825" />
+        </variable>
+    </group>
+    <group name="750m_SingleGain_Image">
+        <dimension name="band" length="9" isUnlimited="false" />
+        <dimension name="along_track" length="0" isUnlimited="true" />
+        <dimension name="along_scan" length="3200" isUnlimited="false" />
+        <dimension name="calib_band" length="10" isUnlimited="false" />
+        <dimension name="calib_source" length="3" isUnlimited="false" />
+        <dimension name="cal_samples" length="48" isUnlimited="false" />
+        <variable name="band" shape="band" type="string">
+            <values separator=" ">M6 M8 M9 M10 M11 M12 M14 M15 M16</values>
+        </variable>
+        <variable name="calib_band" shape="calib_band" type="string">
+            <values separator=" ">M6 M8 M9 M10 M11 M12 M14 M15 M16a M16b</values>
+        </variable>
+        <variable name="calib_source" shape="calib_source" type="string">
+            <values separator=" ">sv bb sd</values>
+        </variable>
+        <variable name="start_of_data" shape="band scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan start" />
+            <attribute name="source" type="string" value = "APID805:TimeOfDayStartOfData, APID809:TimeOfDayStartOfData, APID807:TimeOfDayStartOfData, APID808:TimeOfDayStartOfData, APID810:TimeOfDayStartOfData, APID812:TimeOfDayStartOfData, APID816:TimeOfDayStartOfData, APID815:TimeOfDayStartOfData, APID814:TimeOfDayStartOfData" />
+        </variable>
+        <variable name="scan_terminus" shape="band scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan terminus" />
+            <attribute name="source" type="string" value = "APID805:ScanTerminus, APID809:ScanTerminus, APID807:ScanTerminus, APID808:ScanTerminus, APID810:ScanTerminus, APID812:ScanTerminus, APID816:ScanTerminus, APID815:ScanTerminus, APID814:ScanTerminus" />
+        </variable>
+        <variable name="earthview_band_control_word" shape="band scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Earth view Band Control Word" />
+            <attribute name="source" type="string" value = "APID805:BandControlWord, APID809:BandControlWord, APID807:BandControlWord, APID808:BandControlWord, APID810:BandControlWord, APID812:BandControlWord, APID816:BandControlWord, APID815:BandControlWord, APID814:BandControlWord" />
+        </variable>
+        <variable name="calibview_band_control_word" shape="calib_band scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Calibration view Band Control Word" />
+            <attribute name="source" type="string" value = "APID825:BandControlWord (for each included band)" />
+        </variable>
+        <variable name="earthview" shape="band along_track along_scan" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the Earth view for Moderate single gain bands 6, 8-12, 14-16" />
+            <attribute name="source" type="string" value = "APID805, APID809, APID807, APID808, APID810, APID812, APID816, APID815, APID814" />
+        </variable>
+        <variable name="calibview" shape="calib_band calib_source along_track cal_samples" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the space view, black body, and solar diffuser for Moderate single gain bands 6, 8-12, 14-16" />
+            <attribute name="source" type="string" value = "APID825" />
+        </variable>
+    </group>
+    <group name="DayNight_Image">
+        <dimension name="along_track" length="0" isUnlimited="true" />
+        <dimension name="along_scan" length="4064" isUnlimited="false" />
+        <dimension name="calib_source" length="3" isUnlimited="false" />
+        <dimension name="cal_samples" length="64" isUnlimited="false" />
+        <variable name="calib_source" shape="calib_source" type="string">
+            <values separator=" ">sv bb sd</values>
+        </variable>
+        <variable name="start_of_data" shape="scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan start" />
+            <attribute name="source" type="string" value = "APID821:TimeOfDayStartOfData" />
+        </variable>
+        <variable name="scan_terminus" shape="scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Time at scan terminus" />
+            <attribute name="source" type="string" value = "APID821:ScanTerminus" />
+        </variable>
+        <variable name="earthview_band_control_word" shape="scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Earth view Band Control Word" />
+            <attribute name="source" type="string" value = "APID821:BandControlWord" />
+        </variable>
+        <variable name="calibview_band_control_word" shape="scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Calibration view Band Control Word" />
+            <attribute name="source" type="string" value = "APID825:BandControlWord (for Day/Night Band)" />
+        </variable>
+        <variable name="calibview_dnb_agg_mode" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "1" />
+            <attribute name="valid_max" type="byte" value = "36" />
+            <attribute name="_FillValue" type="byte" value = "248" />
+            <attribute name="long_name" type="string" value = "Calibration Day/Night Band Aggregation Mode" />
+            <attribute name="source" type="string" value = "APID825:DNBAggMode" />
+        </variable>
+        <variable name="calibview_active_samples" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="byte" value = "248" />
+            <attribute name="long_name" type="string" value = "Active Day/Night Band calibration view samples per scan" />
+        </variable>
+        <variable name="earthview" shape="along_track along_scan" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the Earth view for Day/Night band" />
+            <attribute name="source" type="string" value = "APID821" />
+        </variable>
+        <variable name="earthview_gain" shape="along_track along_scan" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "2" />
+            <attribute name="_FillValue" type="byte" value = "248" />
+            <attribute name="long_name" type="string" value = "Gain state from the Earth view for Day/Night band" />
+            <attribute name="source" type="string" value = "APID821" />
+        </variable>
+        <variable name="calibview" shape="calib_source along_track cal_samples" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Digital counts from the space view, black body, and solar diffuser for Day/Night band" />
+            <attribute name="source" type="string" value = "APID825" />
+        </variable>
+        <variable name="calibview_gain" shape="calib_source along_track cal_samples" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "2" />
+            <attribute name="_FillValue" type="byte" value = "248" />
+            <attribute name="long_name" type="string" value = "Gain state from the space view, black body, and solar diffuser for Day/Night band" />
+            <attribute name="source" type="string" value = "APID825" />
+        </variable>
+    </group>
+    <group name="Engineering_Data">
+        <dimension name="hrdt_samples" length="16" isUnlimited="false" />
+        <dimension name="mirror_sides" length="2" isUnlimited="false" />
+        <dimension name="encoder_samples" length="1290" isUnlimited="false" />
+        <dimension name="375m_detectors" length="32" isUnlimited="false" />
+        <dimension name="sdsm_750m_detectors" length="8" isUnlimited="false" />
+        <dimension name="sdsm_samples" length="5" isUnlimited="false" />
+        <dimension name="bb_thermistors" length="6" isUnlimited="false" />
+        <dimension name="750m_detectors" length="16" isUnlimited="false" />
+        <dimension name="events" length="64" isUnlimited="false" />
+        <dimension name="event_bytes" length="18" isUnlimited="false" />
+        <variable name="start_of_scan_time" shape="scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958/01/01 00:00:00" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Scan Start Time" />
+            <attribute name="source" type="string" value = "APID826:SecondaryHeader.StartOfScan" />
+        </variable>
+        <variable name="s_cp_seq_cnt" shape="scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Total Packet Count" />
+            <attribute name="source" type="string" value = "APID826:S_CP_SEQ_CNT" />
+        </variable>
+        <variable name="s_cp_pkt_time" shape="scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958/01/01 00:00:00" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Packet Time" />
+            <attribute name="source" type="string" value = "APID826:S_CP_PKT_TIME_DAY,APID826:S_CP_PKT_TIME_MILLISEC,APID826:S_CP_PKT_TIME_MICROSEC" />
+        </variable>
+        <variable name="c_cp_format_ver" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "1" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Telemetry Format Version" />
+            <attribute name="source" type="string" value = "APID826:C_CP_FORMAT_VER" />
+        </variable>
+        <variable name="c_cp_instr_num" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "1" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Instrument ID" />
+            <attribute name="source" type="string" value = "APID826:C_CP_INSTR_NUM" />
+        </variable>
+        <variable name="c_cp_fsw_version" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "12289" />
+            <attribute name="valid_max" type="short" value = "32767" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Flight Hardware and Software Version" />
+            <attribute name="source" type="string" value = "APID826:C_CP_FSW_VERSION" />
+        </variable>
+        <variable name="s_cp_end_scan_time" shape="scans" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958/01/01 00:00:00" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Scan End Time" />
+            <attribute name="source" type="string" value = "APID826:S_CP_END_SCAN_DAY,APID826:S_CP_END_SCAN_MILLISEC,APID826:S_CP_END_SCAN_MICROSEC" />
+        </variable>
+        <variable name="s_cp_scan_num" shape="scans" type="long">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="long" value = "4294967289" />
+            <attribute name="long_name" type="string" value = "Scan Number" />
+            <attribute name="source" type="string" value = "APID826:S_CP_SCAN_NUM" />
+        </variable>
+        <variable name="s_cp_sensor_mode" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "7" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Sensor Mode" />
+            <attribute name="source" type="string" value = "APID826:S_CP_SENSOR_MODE" />
+        </variable>
+        <variable name="s_cp_servo_locked" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Servo Locked" />
+            <attribute name="source" type="string" value = "APID826:S_CP_SERVO_LOCKED" />
+        </variable>
+        <variable name="s_cp_ham_side" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Half Angle Mirror Side" />
+            <attribute name="source" type="string" value = "APID826:S_CP_HAM_SIDE" />
+        </variable>
+        <variable name="s_cp_sdsm_active" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM Active" />
+            <attribute name="source" type="string" value = "APID826:S_CP_SDSM_ACTIVE" />
+        </variable>
+        <variable name="s_cp_fpa_cal_data_gain" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "FPA Calibration Data Gain" />
+            <attribute name="source" type="string" value = "APID826:S_CP_FPA_CAL_DATA_GAIN" />
+        </variable>
+        <variable name="s_cp_self_test_data" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "15" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Self-test Data Pattern" />
+            <attribute name="source" type="string" value = "APID826:S_CP_SELF_TEST_DATA" />
+        </variable>
+        <variable name="es_se_a_teleham_scansync" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-A Telescope/Half-Angle Mirror Scan Sync" />
+            <attribute name="source" type="string" value = "APID826:ES_SE_A_TELEHAM_SCANSYN" />
+        </variable>
+        <variable name="es_se_b_teleham_scansync" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-B Telescope/Half-Angle Mirror Scan Sync" />
+            <attribute name="source" type="string" value = "APID826:ES_SE_B_TELEHAM_SCANSYN" />
+        </variable>
+        <variable name="es_sd_sdsm_mtr_step_cnt" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "127" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM Motor Absolute Step Count" />
+            <attribute name="source" type="string" value = "APID826:ES_SD_SDSM_MTR_STEP_CNT" />
+        </variable>
+        <variable name="c_dp_reg_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "DPP Register Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_REG_TBL_REV" />
+        </variable>
+        <variable name="c_dp_state_tran_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "DPP State Transition Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_STATE_TRAN_TBL_REV" />
+        </variable>
+        <variable name="c_dp_band_proc_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "DPP Band Processing Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_BAND_PROC_TBL_REV" />
+        </variable>
+        <variable name="c_dp_heat_ctrl_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "PWM Heater Control Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_HEAT_CTRL_TBL_REV" />
+        </variable>
+        <variable name="c_dp_macro_cmd_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Macro Command Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_MACRO_CMD_TBL_REV" />
+        </variable>
+        <variable name="c_dp_crit_tele_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Critical Telemetry Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_CRIT_TELE_TBL_REV" />
+        </variable>
+        <variable name="c_dp_stor_cmd_tbl_rev" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "65528" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Stored Command Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_STOR_CMD_TBL_REV" />
+        </variable>
+        <variable name="ec_dp_dn_m_l_gain_pkt" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Send Day/Night Band Low and Middle Gain Stage Packets" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_DN_M_L_GAIN_PKT" />
+        </variable>
+        <variable name="ec_dp_hrd_pkt_norm_test" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Packet Normal/Test State" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_HRD_PKT_NORM_TEST" />
+        </variable>
+        <variable name="ec_dp_nonrdt_fpie_pwr" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Non-redundant FPIE Power" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_NONRDT_FPIE_PWR" />
+        </variable>
+        <variable name="ec_dp_servo_in_use" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Servo In Use" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_SERVO_IN_USE" />
+        </variable>
+        <variable name="ec_ps_sec_b_apfp_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Power Supply Section B ASP FPIE State" />
+            <attribute name="source" type="string" value = "APID826:EC_PS_SEC_B_APFP_ON" />
+        </variable>
+        <variable name="ec_ps_sec_c_se_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Power Supply Section C SCE State" />
+            <attribute name="source" type="string" value = "APID826:EC_PS_SEC_C_SE_ON" />
+        </variable>
+        <variable name="ec_ps_sec_d_csog_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Power Supply Section D Cold-Stage Outgas Heater State" />
+            <attribute name="source" type="string" value = "APID826:EC_PS_SEC_D_CSOG_ON" />
+        </variable>
+        <variable name="ec_ps_sec_e_isog_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Power Supply Section E Intermediate-Stage Outgas Heater State" />
+            <attribute name="source" type="string" value = "APID826:EC_PS_SEC_E_ISOG_ON" />
+        </variable>
+        <variable name="ec_se_a_anlg_pwr_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-A Analog Power State" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_A_ANLG_PWR_ON" />
+        </variable>
+        <variable name="ec_se_a_mtr_coil_driver" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-A Motor Coil Driver Source" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_A_MTR_COIL_DRIVER" />
+        </variable>
+        <variable name="ec_se_a_mtrs_stopped" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-A Motor State" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_A_MTRS_STOPPED" />
+        </variable>
+        <variable name="ec_se_a_tele_pos_known" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-A Telescope Position State" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_A_TELE_POS_KNOWN" />
+        </variable>
+        <variable name="ec_se_b_anlg_pwr_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-B Analog Power State" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_B_ANLG_PWR_ON" />
+        </variable>
+        <variable name="ec_se_b_mtr_coil_driver" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-B Motor Coil Driver Source" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_B_MTR_COIL_DRIVER" />
+        </variable>
+        <variable name="ec_se_b_mtrs_stopped" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-B Motor State" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_B_MTRS_STOPPED" />
+        </variable>
+        <variable name="ec_se_b_tele_pos_known" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-B Telescope Position State" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_B_TELE_POS_KNOWN" />
+        </variable>
+        <variable name="ec_dp_dn_aggreg_mode" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "63" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Aggregation Mode" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_DN_AGGREG_MODE" />
+        </variable>
+        <variable name="ec_cp_blk_pwr_sel" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Block Power Selection" />
+            <attribute name="source" type="string" value = "APID826:EC_CP_BLK_PWR_SEL" />
+        </variable>
+        <variable name="ec_dp_ap_m16_tdi_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP M16 Time Delay Integration State" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_AP_M16_TDI_ON" />
+        </variable>
+        <variable name="ec_dp_scan_encdr_delta" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "32767" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Scan Encoder Delta" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_SCAN_ENCDR_DELTA" />
+        </variable>
+        <variable name="ec_dp_ap_self_test" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Self-test State" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_AP_SELF_TEST" />
+        </variable>
+        <variable name="ec_se_servo_pwr_sel" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE Servo Power Selection" />
+            <attribute name="source" type="string" value = "APID826:EC_SE_SERVO_PWR_SEL" />
+        </variable>
+        <variable name="ec_dp_dnb_1a_1b_stage" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "2" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Stage 1 Data Selection" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_DNB_1A_1B_STAGE" />
+        </variable>
+        <variable name="ec_dp_dnb_tmg_mode" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Timing Mode" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_DNB_TMG_MODE" />
+        </variable>
+        <variable name="ec_dp_dnb_dark_sub_cal" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Calibview Dark Pixel Subtraction" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_DNB_DARK_SUB_CAL" />
+        </variable>
+        <variable name="ec_dp_dnb_dark_sub_eth" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Earthview Dark Pixel Subtraction" />
+            <attribute name="source" type="string" value = "APID826:EC_DP_DNB_DARK_SUB_ETH" />
+        </variable>
+        <variable name="ec_ap_dc_fast_restore" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_DC_FAST_RESTORE" />
+        </variable>
+        <variable name="es_se_a_ham_mir_side" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-A Half-Angle Mirror Side" />
+            <attribute name="source" type="string" value = "APID826:ES_SE_A_HAM_MIR_SIDE" />
+        </variable>
+        <variable name="es_se_b_ham_mir_side" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SCE-B Half-Angle Mirror Side" />
+            <attribute name="source" type="string" value = "APID826:ES_SE_B_HAM_MIR_SIDE" />
+        </variable>
+        <variable name="ei_se_a_ham_mtr_curr" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Half-Angle Mirror Motor Current" />
+            <attribute name="source" type="string" value = "APID826:EI_SE_A_HAM_MTR_CURR" />
+        </variable>
+        <variable name="ei_se_a_tele_mtr_curr" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Telescope Motor Current" />
+            <attribute name="source" type="string" value = "APID826:EI_SE_A_TELE_MTR_CURR" />
+        </variable>
+        <variable name="ei_se_b_ham_mtr_curr" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Half-Angle Mirror Motor Current" />
+            <attribute name="source" type="string" value = "APID826:EI_SE_B_HAM_MTR_CURR" />
+        </variable>
+        <variable name="ei_se_b_tele_mtr_curr" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Telescope Motor Current" />
+            <attribute name="source" type="string" value = "APID826:EI_SE_B_TELE_MTR_CURR" />
+        </variable>
+        <variable name="ev_ct_prec_tref_mux1ca1" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Precision Calibration Reference Thermistor Mux1Cal1 Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_CT_PREC_TREF_MUX1CA1" />
+        </variable>
+        <variable name="ev_ct_prec_tref_mux1ca2" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Precision Calibration Reference Thermistor Mux1Cal2 Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_CT_PREC_TREF_MUX1CA2" />
+        </variable>
+        <variable name="ev_ct_prec_tref_mux1ca3" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Precision Calibration Reference Thermistor Mux1Cal3 Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_CT_PREC_TREF_MUX1CA3" />
+        </variable>
+        <variable name="ev_ft_adc_ref" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC ADC 5 Volt Reference Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_ADC_REF" />
+        </variable>
+        <variable name="ev_ft_adc_ref_lw_stpt" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC ADC Long-Wavelength Setpoint Reference Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_ADC_REF_LW_STPT" />
+        </variable>
+        <variable name="ev_ft_ckt_gnd" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC Circuit Ground Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_CKT_GND" />
+        </variable>
+        <variable name="ev_ft_lw_cfpa_htr_pwr" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC Long-WavelengthFPA Heater Power Supply Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_LW_CFPA_HTR_PWR" />
+        </variable>
+        <variable name="ev_ft_lw_setpt_ref" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC Long-Wavelength Setpoint Reference Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_LW_SETPT_REF" />
+        </variable>
+        <variable name="ev_ft_sm_cfpa_htr_pwr" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC Short/Medium-Wavelength FPA Heater Power Supply Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_SM_CFPA_HTR_PWR" />
+        </variable>
+        <variable name="ev_ft_sm_setpt_ref" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "FTC Short/Medium-Wavelength Setpoint Reference Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_FT_SM_SETPT_REF" />
+        </variable>
+        <variable name="ev_se_a_ham_rate_error" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Half-Angle Mirror Rate Error Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_SE_A_HAM_RATE_ERROR" />
+        </variable>
+        <variable name="ev_se_a_tele_rate_error" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Telescope Rate Error Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_SE_A_TELE_RATE_ERROR" />
+        </variable>
+        <variable name="ev_se_b_ham_rate_error" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Half-Angle Mirror Rate Error Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_SE_B_HAM_RATE_ERROR" />
+        </variable>
+        <variable name="ev_se_b_tele_rate_error" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Telescope Rate Error Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_SE_B_TELE_RATE_ERROR" />
+        </variable>
+        <variable name="c_ap_visnir_reg_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP Visible/NIR Register Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_AP_VISNIR_REG_TBL_REV" />
+        </variable>
+        <variable name="c_ap_smwir_reg_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP SW/MW-IR Register Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_AP_SMWIR_REG_TBL_REV" />
+        </variable>
+        <variable name="c_ap_lwir_reg_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP LW-IR Register Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_AP_LWIR_REG_TBL_REV" />
+        </variable>
+        <variable name="c_ap_fpa_ideal_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP FPA Ideal Offsets Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_AP_FPA_IDEAL_TBL_REV" />
+        </variable>
+        <variable name="ec_ap_dc_restore" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP Global DC Restore State" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_DC_RESTORE" />
+        </variable>
+        <variable name="ec_ap_det_connected" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP Detector State" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_DET_CONNECTED" />
+        </variable>
+        <variable name="ec_ap_lw_ifs_width" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="units" type="string" value = "ticks" />
+            <attribute name="valid_min" type="byte" value = "2" />
+            <attribute name="valid_max" type="byte" value = "16" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP LW-IR Imaging Frame Sync Width" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_LW_IFS_WIDTH" />
+        </variable>
+        <variable name="ec_ap_dual_gain_3_ops" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "2" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP Dual Gain Operation Mode" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_DUAL_GAIN_3_OPS" />
+        </variable>
+        <variable name="ec_ap_lw_rfs_width" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="units" type="string" value = "ticks" />
+            <attribute name="valid_min" type="byte" value = "2" />
+            <attribute name="valid_max" type="byte" value = "36" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP LW-IR Radiometric Frame Sync Width" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_LW_RFS_WIDTH" />
+        </variable>
+        <variable name="ec_ap_fpa_st_3_ops" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "2" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP FPA Self-test Operation Mode" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_FPA_ST_3_OPS" />
+        </variable>
+        <variable name="ec_ap_sm_ifs_width" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="units" type="string" value = "ticks" />
+            <attribute name="valid_min" type="byte" value = "2" />
+            <attribute name="valid_max" type="byte" value = "15" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP SW/MW-IR Imaging Frame Sync Width" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_SM_IFS_WIDTH" />
+        </variable>
+        <variable name="ec_ap_sm_rfs_width" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="units" type="string" value = "ticks" />
+            <attribute name="valid_min" type="byte" value = "2" />
+            <attribute name="valid_max" type="byte" value = "35" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP SW/MW-IR Radiometric Frame Sync Width" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_SM_RFS_WIDTH" />
+        </variable>
+        <variable name="ec_ap_vn_ifs_width" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="units" type="string" value = "ticks" />
+            <attribute name="valid_min" type="byte" value = "2" />
+            <attribute name="valid_max" type="byte" value = "15" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP Visible/NIR Imaging Frame Sync Width" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_VN_IFS_WIDTH" />
+        </variable>
+        <variable name="ec_ap_vn_rfs_width" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="units" type="string" value = "ticks" />
+            <attribute name="valid_min" type="byte" value = "2" />
+            <attribute name="valid_max" type="byte" value = "35" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "ASP Visible/NIR Radiometric Frame Sync Width" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_VN_RFS_WIDTH" />
+        </variable>
+        <variable name="eta_ft_lw_cfpa_hi_rsl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR Cold FPA High Resolution Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETA_FT_LW_CFPA_HI_RSL" />
+        </variable>
+        <variable name="eta_ft_lw_cfpa_lo_rsl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR Cold FPA Low Resolution Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETA_FT_LW_CFPA_LO_RSL" />
+        </variable>
+        <variable name="eta_ft_sm_cfpa_hi_rsl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Cold FPA High Resolution Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETA_FT_SM_CFPA_HI_RSL" />
+        </variable>
+        <variable name="eta_ft_sm_cfpa_lo_rsl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Cold FPA Low Resolution Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETA_FT_SM_CFPA_LO_RSL" />
+        </variable>
+        <variable name="eta_ft_vis_nir_fpa" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR FPA Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETA_FT_VIS_NIR_FPA" />
+        </variable>
+        <variable name="c_dp_aggreg_mode_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Aggregation Mode Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_AGGREG_MODE_REV" />
+        </variable>
+        <variable name="c_dp_threshold_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Threshold Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_THRESHOLD_TBL_REV" />
+        </variable>
+        <variable name="c_dp_1a_offsets_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band 1A Offsets Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_1A_OFFSETS_TBL_REV" />
+        </variable>
+        <variable name="eta_dp_dnb_ccd" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Day/Night Band CCD Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETA_DP_DNB_CCD" />
+        </variable>
+        <variable name="c_dp_1b_offsets_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band 1B Offsets Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_1B_OFFSETS_TBL_REV" />
+        </variable>
+        <variable name="c_dp_2_offsets_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band 2 Offsets Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_2_OFFSETS_TBL_REV" />
+        </variable>
+        <variable name="c_dp_3_offsets_tbl_rev" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "248" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band 3 Offsets Table Revision" />
+            <attribute name="source" type="string" value = "APID826:C_DP_3_OFFSETS_TBL_REV" />
+        </variable>
+        <variable name="c_ap_m1_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M1 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M1_HAM0_DET01-16,APID826:C_AP_M1_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m2_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M2 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M2_HAM0_DET01-16,APID826:C_AP_M2_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m3_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M3 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M3_HAM0_DET01-16,APID826:C_AP_M3_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m4_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M4 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M4_HAM0_DET01-16,APID826:C_AP_M4_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m5_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M5 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M5_HAM0_DET01-16,APID826:C_AP_M5_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m6_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M6 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M6_HAM0_DET01-16,APID826:C_AP_M6_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m7_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M7 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M7_HAM0_DET01-16,APID826:C_AP_M7_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m8_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M8 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M8_HAM0_DET01-16,APID826:C_AP_M8_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m9_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M9 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M9_HAM0_DET01-16,APID826:C_AP_M9_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m10_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M10 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M10_HAM0_DET01-16,APID826:C_AP_M10_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m11_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M11 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M11_HAM0_DET01-16,APID826:C_AP_M11_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m12_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M12 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M12_HAM0_DET01-16,APID826:C_AP_M12_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m13_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M13 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M13_HAM0_DET01-16,APID826:C_AP_M13_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m14_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M14 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M14_HAM0_DET01-16,APID826:C_AP_M14_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m15_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M15 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M15_HAM0_DET01-16,APID826:C_AP_M15_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m16a_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M16a Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M16A_HAM0_DET01-16,APID826:C_AP_M16A_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_m16b_offsets" shape="scans mirror_sides 750m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "M16b Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_M16B_HAM0_DET01-16,APID826:C_AP_M16B_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_i1_offsets" shape="scans mirror_sides 375m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "I1 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_I1E_HAM0_DET01-16,APID826:C_AP_I1O_HAM0_DET01-16,APID826:C_AP_I1E_HAM1_DET01-16,APID826:C_AP_I1O_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_i2_offsets" shape="scans mirror_sides 375m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "I2 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_I2E_HAM0_DET01-16,APID826:C_AP_I2O_HAM0_DET01-16,APID826:C_AP_I2E_HAM1_DET01-16,APID826:C_AP_I2O_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_i3_offsets" shape="scans mirror_sides 375m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "I3 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_I3E_HAM0_DET01-16,APID826:C_AP_I3O_HAM0_DET01-16,APID826:C_AP_I3E_HAM1_DET01-16,APID826:C_AP_I3O_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_i4_offsets" shape="scans mirror_sides 375m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "I4 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_I4E_HAM0_DET01-16,APID826:C_AP_I4O_HAM0_DET01-16,APID826:C_AP_I4E_HAM1_DET01-16,APID826:C_AP_I4O_HAM1_DET01-16" />
+        </variable>
+        <variable name="c_ap_i5_offsets" shape="scans mirror_sides 375m_detectors" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "I5 Band FPA Electronics Offsets" />
+            <attribute name="source" type="string" value = "APID826:C_AP_I5E_HAM0_DET01-16,APID826:C_AP_I5O_HAM0_DET01-16,APID826:C_AP_I5E_HAM1_DET01-16,APID826:C_AP_I5O_HAM1_DET01-16" />
+        </variable>
+        <variable name="s_cp_events_table" shape="scans events event_bytes" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Event Table Dump" />
+            <attribute name="source" type="string" value = "APID826:S_CP_EVENTS_TABLE" />
+        </variable>
+        <variable name="ev_ap_p30_vispin" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR P30_VISPIN Backplane Source Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_P30_VISPIN" />
+        </variable>
+        <variable name="v_ap_lwir_adj_bias_1v" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR Adjust 1V Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LWIR_ADJ_BIAS_1V" />
+        </variable>
+        <variable name="v_ap_lwir_adj_bias_2v" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR Adjust 2V Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LWIR_ADJ_BIAS_2V" />
+        </variable>
+        <variable name="v_ap_lw_vdet_com1" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VDET COM1 Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VDET_COM1" />
+        </variable>
+        <variable name="v_ap_lw_vdet_com2" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VDET COM2 Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VDET_COM2" />
+        </variable>
+        <variable name="v_ap_lw_vr_clamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VR Clamp Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VR_CLAMP" />
+        </variable>
+        <variable name="v_ap_lw_vi_clamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VI Clamp Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VI_CLAMP" />
+        </variable>
+        <variable name="v_ap_lw_vpo" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VPO Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VPO" />
+        </variable>
+        <variable name="v_ap_lw_vna" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VNA Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VNA" />
+        </variable>
+        <variable name="v_ap_lw_vnd" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VND Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VND" />
+        </variable>
+        <variable name="v_ap_lw_vn_stat" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR VN Stat Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_LW_VN_STAT" />
+        </variable>
+        <variable name="v_ap_smwir_adj_bias_1v" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Adjust 1V Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SMWIR_ADJ_BIAS_1V" />
+        </variable>
+        <variable name="v_ap_smwir_adj_bias_2v" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Adjust 2V Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SMWIR_ADJ_BIAS_2V" />
+        </variable>
+        <variable name="v_ap_sm_vnrst" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VNRST Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VNRST" />
+        </variable>
+        <variable name="v_ap_sm_dgain_sw_vref" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Dual Gain Transition Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_DGAIN_SW_VREF" />
+        </variable>
+        <variable name="v_ap_sm_vr_clamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VR Clamp Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VR_CLAMP" />
+        </variable>
+        <variable name="v_ap_sm_vi_clamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VI Clamp Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VI_CLAMP" />
+        </variable>
+        <variable name="v_ap_sm_vpo" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VPO Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VPO" />
+        </variable>
+        <variable name="v_ap_sm_vna" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VNA Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VNA" />
+        </variable>
+        <variable name="v_ap_sm_vnd" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VND Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VND" />
+        </variable>
+        <variable name="v_ap_sm_vn_stat" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR VN Stat Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_SM_VN_STAT" />
+        </variable>
+        <variable name="v_ap_visnir_adj_bias_1v" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Adjust 1V Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VISNIR_ADJ_BIAS_1V" />
+        </variable>
+        <variable name="ev_ap_vn_dgain_sw_vref" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Dual Gain Transition Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_VN_DGAIN_SW_VREF" />
+        </variable>
+        <variable name="v_ap_vn_vdet_com1" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VDET COM1 Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VDET_COM1" />
+        </variable>
+        <variable name="v_ap_vn_vdet_com2" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VDET COM2 Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VDET_COM2" />
+        </variable>
+        <variable name="v_ap_vn_vr_clamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VR Clamp Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VR_CLAMP" />
+        </variable>
+        <variable name="v_ap_vn_vi_clamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VI Clamp Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VI_CLAMP" />
+        </variable>
+        <variable name="v_ap_vn_vpo" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VPO Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VPO" />
+        </variable>
+        <variable name="v_ap_vn_vna" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VNA Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VNA" />
+        </variable>
+        <variable name="v_ap_vn_vnd" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VND Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VND" />
+        </variable>
+        <variable name="v_ap_vn_vn_stat" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR VN Stat Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:V_AP_VN_VN_STAT" />
+        </variable>
+        <variable name="ec_ap_lw_selftest_vb" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "LW-IR Self-test Commanded Vbase Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_LW_SELFTEST_VB" />
+        </variable>
+        <variable name="ec_ap_lw_selftest_vs_cm" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "LW-IR Self-test Commanded Vstep Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_LW_SELFTEST_VS_CM" />
+        </variable>
+        <variable name="ev_ap_lw_selftest_vs_tl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR Self-test Vstep Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_LW_SELFTEST_VS_TL" />
+        </variable>
+        <variable name="ev_ap_lw_vab_adj" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR FPA Variable Detector Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_LW_VAB_ADJ" />
+        </variable>
+        <variable name="ev_ap_lw_vdet_adj" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR FPA Fixed Detector Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_LW_VDET_ADJ" />
+        </variable>
+        <variable name="ec_ap_sm_selftest_vb" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Self-test Commanded Vbase Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_SM_SELFTEST_VB" />
+        </variable>
+        <variable name="ec_ap_sm_selftest_vs_cm" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Self-test Commanded Vstep Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_SM_SELFTEST_VS_CM" />
+        </variable>
+        <variable name="ev_ap_sm_selftest_vs_tl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Self-test Vstep Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_SM_SELFTEST_VS_TL" />
+        </variable>
+        <variable name="ev_ap_sm_vab_adj" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR FPA Variable Detector Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_SM_VAB_ADJ" />
+        </variable>
+        <variable name="ev_ap_sm_dgain_sw_vref" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Dual Gain Transition Bias Voltage (copy)" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_SM_DGAIN_SW_VREF" />
+        </variable>
+        <variable name="ec_ap_vn_selftest_vb" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Self-test Commanded Vbase Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_VN_SELFTEST_VB" />
+        </variable>
+        <variable name="ec_ap_vn_selftest_vs_cm" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Self-test Commanded Vstep Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_VN_SELFTEST_VS_CM" />
+        </variable>
+        <variable name="ev_ap_vn_selftest_vs_tl" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Self-test Vstep Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_VN_SELFTEST_VS_TL" />
+        </variable>
+        <variable name="ev_ap_vn_vab_adj" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR FPA Variable Detector Bias Voltage" />
+            <attribute name="source" type="string" value = "APID826:EV_AP_VN_VAB_ADJ" />
+        </variable>
+        <variable name="etp_bb_temps" shape="scans bb_thermistors" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Blackbody Temperatures (Thermistors 1-6)" />
+            <attribute name="source" type="string" value = "APID826:ETP_BB_1,APID826:ETP_BB_2,APID826:ETP_BB_3,APID826:ETP_BB_4,APID826:ETP_BB_5,APID826:ETP_BB_6" />
+        </variable>
+        <variable name="ec_ap_vn_vref_inhibit" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "4095" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Reference Voltage Inhibit Commanded Voltage" />
+            <attribute name="source" type="string" value = "APID826:EC_AP_VN_VREF_INHIBIT" />
+        </variable>
+        <variable name="etp_hm_ham_db_op_htr_a" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror DB Bearing Operational Heater A Temperature (Thermistor 17)" />
+            <attribute name="source" type="string" value = "APID826:ETP_HM_HAM_DB_OP_HTR_A" />
+        </variable>
+        <variable name="etp_hm_ham_db_op_htr_b" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror DB Bearing Operational Heater B Temperature (Thermistor 21)" />
+            <attribute name="source" type="string" value = "APID826:ETP_HM_HAM_DB_OP_HTR_B" />
+        </variable>
+        <variable name="etp_hm_tele_db_op_htr_a" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Telescope DB Bearing Operational Heater A Temperature (Thermistor 18)" />
+            <attribute name="source" type="string" value = "APID826:ETP_HM_TELE_DB_OP_HTR_A" />
+        </variable>
+        <variable name="etp_hm_tele_db_op_htr_b" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Telescope DB Bearing Operational Heater A Temperature (Thermistor 23)" />
+            <attribute name="source" type="string" value = "APID826:ETP_HM_TELE_DB_OP_HTR_B" />
+        </variable>
+        <variable name="etp_mf_ao_blkhd_nx_pz" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Aft Optics Bulkhead NX-PZ Temperature (Thermistor 45)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_AO_BLKHD_NX_PZ" />
+        </variable>
+        <variable name="etp_mf_ao_blkhd_px_nz" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Aft Optics Bulkhead PX-NZ Temperature (Thermistor 44)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_AO_BLKHD_PX_NZ" />
+        </variable>
+        <variable name="etp_mf_ao_km2_nx" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Aft Optics KM2-NX Temperature (Thermistor 88)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_AO_KM2_NX" />
+        </variable>
+        <variable name="etp_mf_ao_km2_ny" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Aft Optics KM2-NY Temperature (Thermistor 39)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_AO_KM2_NY" />
+        </variable>
+        <variable name="etp_mf_ao_km3_px" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Aft Optics KM3-PX Temperature (Thermistor 40)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_AO_KM3_PX" />
+        </variable>
+        <variable name="etp_mf_fold_mir_bkhd_ct" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Fold Mirror Bulkhead Center Temperature (Thermistor 6)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_FOLD_MIR_BKHD_CT" />
+        </variable>
+        <variable name="etp_mf_ham_blkhd" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror Bulkhead Temperature (Thermistor 43)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_HAM_BLKHD" />
+        </variable>
+        <variable name="etp_mf_km1_nxny" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Kinematic Mount NX-NY Temperature (Thermistor 35)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_KM1_NXNY" />
+        </variable>
+        <variable name="etp_mf_km2_nxpy" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Kinematic Mount NX-PY Temperature (Thermistor 34)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_KM2_NXPY" />
+        </variable>
+        <variable name="etp_mf_km1_pxny" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Kinematic Mount PX-NY Temperature (Thermistor 36)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_KM1_PXNY" />
+        </variable>
+        <variable name="etp_mf_km2_pxpy" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Kinematic Mount PX-PY Temperature (Thermistor 37)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_KM2_PXPY" />
+        </variable>
+        <variable name="etp_mf_nadir_raditr_nxp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Nadir Radiator NX-PY Temperature (Thermistor 15)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_NADIR_RADITR_NXP" />
+        </variable>
+        <variable name="etp_mf_nadir_raditr_pxn" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Nadir Radiator PX-NY Temperature (Thermistor 5)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_NADIR_RADITR_PXN" />
+        </variable>
+        <variable name="etp_mf_scan_cavity_nx_n" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Scan Cavity NX-NZ Temperature (Thermistor 47)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SCAN_CAVITY_NX_N" />
+        </variable>
+        <variable name="etp_mf_scan_cavity_nx_p" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Scan Cavity NX-PZ Temperature (Thermistor 46)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SCAN_CAVITY_NX_P" />
+        </variable>
+        <variable name="etp_mf_scan_cvty_baf_nz" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Scan Cavity Baffle NZ Temperature (Thermistor 10)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SCAN_CVTY_BAF_NZ" />
+        </variable>
+        <variable name="etp_mf_scan_cvty_baf_pz" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Scan Cavity Baffle PZ Temperature (Thermistor 9)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SCAN_CVTY_BAF_PZ" />
+        </variable>
+        <variable name="etp_mf_scan_cvty_bkhd_n" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Scan Cavity Bulkhead NY Temperature (Thermistor 8)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SCAN_CVTY_BKHD_N" />
+        </variable>
+        <variable name="etp_mf_space_radiator_n" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Space Radiator NZ Temperature (Thermistor 41)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SPACE_RADIATOR_N" />
+        </variable>
+        <variable name="etp_mf_space_radiator_p" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Space Radiator PZ Temperature (Thermistor 42)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_SPACE_RADIATOR_P" />
+        </variable>
+        <variable name="etp_mf_stopassy_baff_nz" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Aperture Stop Assembly Baffle NZ Temperature (Thermistor 14)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_STOPASSY_BAFF_NZ" />
+        </variable>
+        <variable name="etp_mf_tel_blkhd_nypz" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Telescope Bulkhead NY-PZ Temperature (Thermistor 11)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_TEL_BLKHD_NYPZ" />
+        </variable>
+        <variable name="etp_mf_tel_blkhd_py" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Telescope Bulkhead PY Temperature (Thermistor 33)" />
+            <attribute name="source" type="string" value = "APID826:ETP_MF_TEL_BLKHD_PY" />
+        </variable>
+        <variable name="etp_se_a_hammtr_dfbear" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Half-Angle Mirror DF Bearing Motor Temperature (Thermistor 29)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SE_A_HAMMTR_DFBEAR" />
+        </variable>
+        <variable name="etp_se_a_telemtr_dfbear" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Telescope DF Bearing Motor Temperature (Thermistor 28)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SE_A_TELEMTR_DFBEAR" />
+        </variable>
+        <variable name="etp_se_b_hammtr_dfbear" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Half-Angle Mirror DF Bearing Motor Temperature (Thermistor 10)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SE_B_HAMMTR_DFBEAR" />
+        </variable>
+        <variable name="etp_se_b_telemtr_dfbear" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Telescope DF Bearing Motor Temperature (Thermistor 9)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SE_B_TELEMTR_DFBEAR" />
+        </variable>
+        <variable name="etp_ap_lw_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "LW-IR Primary Circuit Card Assembly Temperature (Thermistor 1)" />
+            <attribute name="source" type="string" value = "APID826:ETP_AP_LW_CCA" />
+        </variable>
+        <variable name="etp_ap_sm_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Circuit Card Assembly Temperature (Thermistor 2)" />
+            <attribute name="source" type="string" value = "APID826:ETP_AP_SM_CCA" />
+        </variable>
+        <variable name="etp_ap_vn_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Visible/NIR Circuit Card Assembly Temperature (Thermistor 3)" />
+            <attribute name="source" type="string" value = "APID826:ETP_AP_VN_CCA" />
+        </variable>
+        <variable name="etp_dp_dnb_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Circuit Card Assembly Temperature (Thermistor 60)" />
+            <attribute name="source" type="string" value = "APID826:ETP_DP_DNB_CCA" />
+        </variable>
+        <variable name="etp_dp_dpp_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Digital Preprocessor Circuit Card Assembly Temperature (Thermistor 61)" />
+            <attribute name="source" type="string" value = "APID826:ETP_DP_DPP_CCA" />
+        </variable>
+        <variable name="etp_dp_fpie_ad_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Focal Plane Integrated Electronics A/D Circuit Card Assembly Temperature (Thermistor 13)" />
+            <attribute name="source" type="string" value = "APID826:ETP_DP_FPIE_AD_CCA" />
+        </variable>
+        <variable name="etp_dp_fpie_clk_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Focal Plane Integrated Electronics Clock Circuit Card Assembly Temperature (Thermistor 51)" />
+            <attribute name="source" type="string" value = "APID826:ETP_DP_FPIE_CLK_CCA" />
+        </variable>
+        <variable name="etp_ft_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Focal Plane Temperature Controller Circuit Card Assembly Temperature (Thermistor 7)" />
+            <attribute name="source" type="string" value = "APID826:ETP_FT_CCA" />
+        </variable>
+        <variable name="etp_ps1" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Power Supply 1 Temperature (Thermistor 52)" />
+            <attribute name="source" type="string" value = "APID826:ETP_PS1" />
+        </variable>
+        <variable name="etp_ps2" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Power Supply 2 Temperature (Thermistor 53)" />
+            <attribute name="source" type="string" value = "APID826:ETP_PS2" />
+        </variable>
+        <variable name="etp_se_a_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-A Circuit Card Assembly Temperature (Thermistor 31)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SE_A_CCA" />
+        </variable>
+        <variable name="etp_se_b_cca" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SCE-B Circuit Card Assembly Temperature (Thermistor 12)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SE_B_CCA" />
+        </variable>
+        <variable name="ec_ft_lw_78k_setpt" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "LW-IR 78K Setpoint Status" />
+            <attribute name="source" type="string" value = "APID826:EC_FT_LW_78K_SETPT" />
+        </variable>
+        <variable name="ec_ft_lw_80k_setpt" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "LW-IR 80K Setpoint Status" />
+            <attribute name="source" type="string" value = "APID826:EC_FT_LW_80K_SETPT" />
+        </variable>
+        <variable name="ec_ft_sm_78k_setpt" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR 78K Setpoint Status" />
+            <attribute name="source" type="string" value = "APID826:EC_FT_SM_78K_SETPT" />
+        </variable>
+        <variable name="ec_ft_sm_80k_setpt" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR 80K Setpoint Status" />
+            <attribute name="source" type="string" value = "APID826:EC_FT_SM_80K_SETPT" />
+        </variable>
+        <variable name="ec_ft_lw_htr_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "LW-IR Heater Status" />
+            <attribute name="source" type="string" value = "APID826:EC_FT_LW_HTR_ON" />
+        </variable>
+        <variable name="ec_ft_sm_htr_on" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SW/MW-IR Heater Status" />
+            <attribute name="source" type="string" value = "APID826:EC_FT_SM_HTR_ON" />
+        </variable>
+        <variable name="ec_hm_dnb_htr_cntl" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Day/Night Band Heater Control Echo" />
+            <attribute name="source" type="string" value = "APID826:EC_HM_DNB_HTR_CNTL" />
+        </variable>
+        <variable name="ec_hm_ham_op_htr_cntl" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror Control Echo" />
+            <attribute name="source" type="string" value = "APID826:EC_HM_HAM_OP_HTR_CNTL" />
+        </variable>
+        <variable name="ec_hm_tel_op_htr_cntl" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "Telescope Operational Heater Control Echo" />
+            <attribute name="source" type="string" value = "APID826:EC_HM_TEL_OP_HTR_CNTL" />
+        </variable>
+        <variable name="ec_hm_ham_ophtr_temp_se" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror Operational Heater Setpoint Echo" />
+            <attribute name="source" type="string" value = "APID826:EC_HM_HAM_OPHTR_TEMP_SE" />
+        </variable>
+        <variable name="ec_hm_tel_ophtr_temp_set" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Telescope Operational Heater Setpoint Echo" />
+            <attribute name="source" type="string" value = "APID826:EC_HM_TEL_OPHTR_TEMP_SET" />
+        </variable>
+        <variable name="etp_bb_avg_temp" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Blackbody Average Temperature" />
+            <attribute name="source" type="string" value = "APID826:ETP_BB_AVG_TEMP" />
+        </variable>
+        <variable name="ec_bb_htr_temp_set" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="short" value = "0" />
+            <attribute name="valid_max" type="short" value = "16383" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Blackbody Heater Temperature Setpoint Echo" />
+            <attribute name="source" type="string" value = "APID826:EC_BB_HTR_TEMP_SET" />
+        </variable>
+        <variable name="ec_bb_select" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Blackbody Average Temperature Thermistor Select Status" />
+            <attribute name="source" type="string" value = "APID826:EC_BB_SELECT" />
+        </variable>
+        <variable name="s_sd_position" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM  Position" />
+            <attribute name="source" type="string" value = "APID826:S_SD_POSITION" />
+        </variable>
+        <variable name="v_sd_sdsm_amp_samples" shape="scans sdsm_750m_detectors sdsm_samples" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SDSM  Amp Sample Voltages" />
+            <attribute name="source" type="string" value = "APID826:V_SD_SDSM_AMP1-8_SMPL1-5" />
+        </variable>
+        <variable name="etp_sd_sdsm_preamp" shape="scans" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "SDSM PreAmp Temperature (Thermistor 57)" />
+            <attribute name="source" type="string" value = "APID826:ETP_SD_SDSM_PREAMP" />
+        </variable>
+        <variable name="ec_sd_sdsm_mtr_hold" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM Motor Hold Status" />
+            <attribute name="source" type="string" value = "APID826:EC_SD_SDSM_MTR_HOLD" />
+        </variable>
+        <variable name="ec_sd_preamp_even_pwr" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM PreAmp 2,4,6,8 Power Status" />
+            <attribute name="source" type="string" value = "APID826:EC_SD_PREAMP_EVEN_PWR" />
+        </variable>
+        <variable name="ec_sd_preamp_odd_pwr" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM PreAmp 1,3,5,7 Power Status" />
+            <attribute name="source" type="string" value = "APID826:EC_SD_PREAMP_ODD_PWR" />
+        </variable>
+        <variable name="ec_sd_sdsm_mtr_at_home" shape="scans" type="byte">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="valid_min" type="byte" value = "0" />
+            <attribute name="valid_max" type="byte" value = "1" />
+            <attribute name="_FillValue" type="byte" value = "249" />
+            <attribute name="long_name" type="string" value = "SDSM Motor At Home Status" />
+            <attribute name="source" type="string" value = "APID826:EC_SD_SDSM_MTR_AT_HOME" />
+        </variable>
+        <variable name="s_se_tele_timestmps" shape="scans encoder_samples" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Telescope Pulse Arrival Timestamps" />
+            <attribute name="source" type="string" value = "APID826:S_SE_TELE_TIMESTMP_0000-1289" />
+        </variable>
+        <variable name="s_se_ham_timestmps" shape="scans encoder_samples" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror Pulse Arrival Timestamps" />
+            <attribute name="source" type="string" value = "APID826:S_SE_HAM_TIMESTMP_0000-1289" />
+        </variable>
+        <variable name="s_dp_tele_ang_scan_strt" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Telescope Raw Angle Count At Scan Start " />
+            <attribute name="source" type="string" value = "APID826:S_DP_TELE_ANG_SCAN_STRT" />
+        </variable>
+        <variable name="s_dp_ham_ang_scan_strt" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Half-Angle Mirror Raw Angle Count At Scan Start " />
+            <attribute name="source" type="string" value = "APID826:S_DP_HAM_ANG_SCAN_STRT" />
+        </variable>
+        <variable name="es_cp_hrdt_values" shape="scans hrdt_samples" type="short">
+            <attribute name="valid_min" type="short" value = "-8192" />
+            <attribute name="valid_max" type="short" value = "8191" />
+            <attribute name="_FillValue" type="short" value = "-993" />
+            <attribute name="long_name" type="string" value = "Hi-Rate Dwell Telemetry Point Values" />
+            <attribute name="source" type="string" value = "APID826:ES_CP_HRDT_VALUE_1-16" />
+        </variable>
+        <variable name="c_cp_hrdt_muxaddr" shape="scans" type="short">
+            <attribute name="_Unsigned" type="string" value = "true" />
+            <attribute name="_FillValue" type="short" value = "65529" />
+            <attribute name="long_name" type="string" value = "Hi-Rate Dwell Telemetry Point Mux Address Selection" />
+            <attribute name="source" type="string" value = "APID826:C_CP_HRDT_MUXADDR" />
+        </variable>
+    </group>
+    <group name="Spacecraft_Diary">
+        <dimension name="eph_sample" length="0" isUnlimited="true" />
+        <dimension name="att_sample" length="0" isUnlimited="true" />
+        <dimension name="ecf_axis" length="3" isUnlimited="false" />
+        <dimension name="quaternion_element" length="4" isUnlimited="false" />
+        <variable name="eph_time" shape="eph_sample" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "ephemeris time" />
+            <attribute name="source" type="string" value = "APID11:EphemerisValidTime" />
+        </variable>
+        <variable name="att_time" shape="att_sample" type="double">
+            <attribute name="units" type="string" value = "seconds since 1958-1-1 00:00:00.000000" />
+            <attribute name="valid_min" type="double" value = "1483228832" />
+            <attribute name="valid_max" type="double" value = "2272147232" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "attitude time" />
+            <attribute name="source" type="string" value = "APID11:AttitudeValidTime" />
+        </variable>
+        <variable name="position" shape="eph_sample ecf_axis" type="double">
+            <attribute name="units" type="string" value = "meters" />
+            <attribute name="valid_min" type="double" value = "-7.25e6" />
+            <attribute name="valid_max" type="double" value = "7.25e6" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Satellite position (ECEF)" />
+            <attribute name="source" type="string" value = "APID11:EphemerisPosition" />
+        </variable>
+        <variable name="velocity" shape="eph_sample ecf_axis" type="double">
+            <attribute name="units" type="string" value = "m/s" />
+            <attribute name="valid_min" type="double" value = "-7.55e3" />
+            <attribute name="valid_max" type="double" value = "7.55e3" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Satellite velocity (ECEF)" />
+            <attribute name="source" type="string" value = "APID11:EphemerisVelocity" />
+        </variable>
+        <variable name="attitude" shape="att_sample quaternion_element" type="double">
+            <attribute name="valid_min" type="double" value = "-1.0" />
+            <attribute name="valid_max" type="double" value = "1.0" />
+            <attribute name="_FillValue" type="double" value = "-999.3" />
+            <attribute name="long_name" type="string" value = "Satellite orientation (ECI J2000.0)" />
+            <attribute name="source" type="string" value = "APID11:ControlFrameAttitudeQuaternions" />
+        </variable>
+    </group>
+</netcdf>
