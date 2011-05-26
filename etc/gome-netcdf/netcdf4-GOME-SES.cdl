@@ -1,7 +1,23 @@
 netcdf GOME_NETCDF4 {
+types:
+     compound f_range_t {
+	     float start ;
+	     float end ;
+};
 
 group: StatusData {
+
+   // Remarques using attributes, we loose the unit
+   // Metadata group is confusing because the netcdf header is already called metadata and the rest is also metadata data
    
+   :spacecraft_id="m02";
+
+   // Do not know where to put this information
+   // Where to put that ?
+  :duration_of_product=180000; //ms
+  :milliseconds_of_data_present=180000; //ms
+  :milliseconds_of_data_missing=0; //ms
+
     group: SatelliteStatus {
 	      :x_velocity=1418.549 ; // m/s
 	      :y_velocity=848.027  ; // m/s
@@ -9,6 +25,7 @@ group: StatusData {
 	      :z_position=4865.973 ; // m
 	      :x_position=-3742784.424 ; // m
 	      :y_position=6152574.206 ; // m
+		  :state_vector_time="2010-11-24T13:23:08.000Z";// ISO 8601 TIME
 		  :semi_major_axis=7204683346; // mm
 		  :inclination=98.715; // deg
 		  :eccentricity=0.00113;
@@ -26,26 +43,188 @@ group: StatusData {
 		  :subsat_longitude_start=-164.53; //deg
 		  :subsat_latitude_end=-76.716; //deg
 		  :subsat_longitude_end=141.858; //deg	
+		  :orbit_start=21266;
+		  :orbit_stop=21267;
+
     }
 
     group: InstrumentStatus {
 	      :instrument_id="gome";
 		  :instrument_model=1;
 		  :processing_level="level 1b";
-		  :spacecraft_id="m02";
-		  :sensing_start="2010/11/24 14:38:58.000";
-		  :sensing_end="2010/11/24 14:41:58.000";
-		  :sensing_start_theoretical="2010/11/24 13:54:00.000";
-		  :sensing_end_theoretical="2010/11/24 15:33:00.000";
+		  :sensing_start="2010-11-24T14:38:58.000Z"; //ISO TIME
+		  :sensing_end="2010-11-24T14:41:58.000Z"; //ISO TIME
+		  :sensing_start_theoretical="2010-11-24T13:54:00.000Z";
+		  :sensing_end_theoretical="2010-11-24T15:33:00.000Z";
+		  :leap_second=0;
+		  :leap_second_utc="2013-06-19T10:34:30.296Z";
+
+           
+		  :n_scans=30; 
+		  :n_valid_with_miss_dp=0; 
+		  :n_miss_dp=0;
+		  :n_missing_scans=0; 
+		  :n_nn_detector_temp_1=0 ;
+		  :n_nn_detector_temp_2=0 ;
+          :n_nn_detector_temp_3=0 ;
+    	  :n_nn_detector_temp_4=0 ;
+		  :n_nn_detector_temp_5=0 ;
+		  :n_nn_detector_temp_6=0 ;
+		  :n_nn_pdp_temp=0 ;
+		  :n_nn_rad_temp=0 ;
+	  	  :n_nn_wls_u=0 ;
+			:n_nn_wls_i=0 ;
+			:n_nn_sls_u=0 ;
+			:n_nn_sls_i=0 ;
+			:n_inv_utc=0 ;
+			:n_nadir_scan=30 ;
+			:n_nth_pole_scan=0 ;
+			:n_sth_pole_scan=0 ;
+			:n_other_scan=0 ;
+			:n_nadir_static=0 ;
+			:n_other_static=0 ;
+			:n_dark=0 ;
+			:n_led=0 ;
+			:n_wls=0 ;
+			:n_sls=0 ;
+			:n_sls_diff=0 ;
+			:n_sun=0 ;
+			:n_moon=0 ;
+			:n_idle=0 ;
+			:n_test=0 ;
+			:n_dump=0 ;
+			:n_invalid=0 ;
+			:n_min_intensity_1=0 ;
+			:n_min_intensity_2=0 ;
+			:n_min_intensity_3=0 ;
+			:n_min_intensity_4=0 ;
+			:n_min_intensity_5=0 ;
+			:n_min_intensity_6=0 ;
+			:n_min_intensity_7=0 ;
+			:n_min_intensity_8=0 ;
+			:n_saturated_1=0 ;
+			:n_saturated_2=0 ;
+			:n_saturated_3=0 ;
+			:n_saturated_4=0 ;
+			:n_saturated_5=0 ;
+			:n_saturated_6=0 ;
+			:n_saturated_7=0 ;
+			:n_saturated_8=0 ;
+			:n_hot_1=0;
+			:n_hot_2=0; 
+			:n_hot_3=0; 
+			:n_hot_4=0; 
+			:n_hot_5=0; 
+			:n_hot_6=0; 
+			:n_hot_7=0; 
+			:n_hot_8=0; 
+			:n_saa=0; 
+			:n_sunglint=0; 
+			:n_rainbow=0; 
+			:n_mode_geolocation=0; 
+			:n_miss_stokes_1=11; 
+			:n_miss_stokes_2=1; 
+			:n_miss_stokes_3=0; 
+			:n_miss_stokes_4=0; 
+			:n_miss_stokes_5=0; 
+			:n_miss_stokes_6=0; 
+			:n_miss_stokes_7=0; 
+			:n_miss_stokes_8=0; 
+			:n_miss_stokes_9=0; 
+			:n_miss_stokes_10=0; 
+			:n_miss_stokes_11=0; 
+			:n_miss_stokes_12=0; 
+			:n_miss_stokes_13=0; 
+			:n_miss_stokes_14=0; 
+			:n_miss_stokes_15=0; 
+			:n_bad_stokes_1=0; 
+			:n_bad_stokes_2=0; 
+			:n_bad_stokes_3=0; 
+			:n_bad_stokes_4=0; 
+			:n_bad_stokes_5=0; 
+			:n_bad_stokes_6=0; 
+			:n_bad_stokes_7=0; 
+			:n_bad_stokes_8=0; 
+			:n_bad_stokes_9=0; 
+			:n_bad_stokes_1=0; 
+			:n_bad_stokes_1=0; 
+			:n_bad_stokes_1=0; 
+			:n_bad_stokes_1=0; 
+			:n_bad_stokes_14=0; 
+			:n_bad_stokes_15=0; 
+			:n_cloud=17; 
+			:processing_indicator="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
     }
 
     group: ProcessingStatus {
-	:MyGroup="1";
+	      :processing_centre="cgs1";
+		  :processor_major_version=4; 
+		  :processor_minor_version=5; 
+		  :format_major_version=11; 
+		  :format_minor_version=0; 
+		  :processing_time_start="2010-11-24T16:10:22.000Z"; // ISO 8601 TIME
+		  :processing_time_end="2010-11-24T16:10:39.000Z"; // ISO 8601 TIME
+		  :processing_mode="n"; 
     }
-
 }
 
-group: MetaData { // Aux info
+group: MetaData { // Would prefer to call it AuxiliaryData as MetaData is confusing
+
+   :elevation="GOME_STA_xx_xxx_20070504000000Z_xxxxxxxxxxxxxxZ_20070503000103Z_xxxx_xxxxxxxxxx";
+
+   :intialisation="GOME_INS_xx_M02_20100806000000Z_20251231235959Z_20100806000124Z_xxxx_FM3x440xxx";
+
+   :keydata="GOME_CAL_xx_M02_20091105000000Z_xxxxxxxxxxxxxxZ_20091105000108Z_xxxx_FM3x440xxx";
+
+ group: Channel {
+
+	 dimensions:
+		  chan_nb = 6;
+
+	 variables:
+		  f_range_t wave_length_range(chan_nb);
+			 wave_length_range:long_name = "Wave length range for each channel" ;
+			 wave_length_range:units     = "nm";
+
+		  f_range_t valid_pixel_range(chan_nb);
+			 valid_pixel_range:long_name = "pixel number for each channel" ;
+			 valid_pixel_range:units     = "pixel position";
+	
+	  
+
+	  data:
+		 wave_length_range = { 239, 313.77}, { 309.45, 401.77}, { 395.35, 604.35}, { 592.56, 791}, {290,870}, {290,870};
+		 valid_pixel_range = { 272, 942}, {151, 932}, {18, 1009}, {35, 989}, {750, 999}, {749, 1000};
+ }
+
+ group: 1B_Band {
+
+	 dimensions:
+		  chan_nb = 10;
+		  band_nb = 10;
+
+	 variables:
+
+	      chan_nb(chan_nb);
+	         chan_nb:long_name = "Channel number";
+		  band_nb(band_nb);
+	         band_nb:long_name = "Band number";
+
+          int start_pixel(chan_nb);
+	         start_pixel:long_name = "Start pixels of the different bands";
+
+          int number_of_pixels(chan_nb);
+	         number_of_pixels:long_name = "Number of pixels of the different bands";
+
+
+		  f_range_t lambda_range(chan_nb);
+			 lambda_range:long_name = "Wave length range for each channel" ;
+			 lambda_range:units     = "nm";
+ }
+
+ // group 1b-steps
+ // group 1b-pmdbandref
+ // add viadr =>  time is used add the variable it qualifies and the time for which it is valid. Add attributes to qualify it 
 
 }
 
