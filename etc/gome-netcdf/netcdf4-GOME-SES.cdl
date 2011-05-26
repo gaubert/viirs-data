@@ -195,9 +195,9 @@ group: MetaData { // Would prefer to call it AuxiliaryData as MetaData is confus
 	  data:
 		 wave_length_range = { 239, 313.77}, { 309.45, 401.77}, { 395.35, 604.35}, { 592.56, 791}, {290,870}, {290,870};
 		 valid_pixel_range = { 272, 942}, {151, 932}, {18, 1009}, {35, 989}, {750, 999}, {749, 1000};
- }
+}
 
- group: 1B_Band {
+group: Band1B {
 
 	 dimensions:
 		  chan_nb = 10;
@@ -205,9 +205,9 @@ group: MetaData { // Would prefer to call it AuxiliaryData as MetaData is confus
 
 	 variables:
 
-	      chan_nb(chan_nb);
+	      int chan_nb(chan_nb);
 	         chan_nb:long_name = "Channel number";
-		  band_nb(band_nb);
+		  int band_nb(band_nb);
 	         band_nb:long_name = "Band number";
 
           int start_pixel(chan_nb);
