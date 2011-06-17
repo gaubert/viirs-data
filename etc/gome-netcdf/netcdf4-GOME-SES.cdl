@@ -14,37 +14,101 @@ group: StatusData {
 
    // Do not know where to put this information
    // Where to put that ?
-  :duration_of_product=180000; //ms
+  :duration_of_product_in_ms=180000; //ms
   :milliseconds_of_data_present=180000; //ms
   :milliseconds_of_data_missing=0; //ms
 
     group: SatelliteStatus {
-	      :x_velocity=1418.549 ; // m/s
-	      :y_velocity=848.027  ; // m/s
-	      :z_velocity=7355.376 ; // m/s
-	      :z_position=4865.973 ; // m
-	      :x_position=-3742784.424 ; // m
-	      :y_position=6152574.206 ; // m
 		  :state_vector_time="2010-11-24T13:23:08.000Z";// ISO 8601 TIME
-		  :semi_major_axis=7204683346; // mm
-		  :inclination=98.715; // deg
-		  :eccentricity=0.00113;
-		  :perigee_argument=67.634 ;//deg
-		  :right_ascension=25.5 ;// deg
-		  :mean_anomaly=292.525 ;// deg
-		  :earth_sun_distance_ratio=6 ;//deg
-		  :location_tolerance_radial=0 ;//m
-		  :location_tolerance_crosstrack=0 ;//m
-		  :location_tolerance_alongtrack=0; //m
-		  :yaw_error=0; //deg
-		  :roll_error=0; //deg
-		  :pitch_error=0; //deg
-		  :subsat_latitude_start=-81.314; //deg
-		  :subsat_longitude_start=-164.53; //deg
-		  :subsat_latitude_end=-76.716; //deg
-		  :subsat_longitude_end=141.858; //deg	
-		  :orbit_start=21266;
-		  :orbit_stop=21267;
+		  :orbit_start      =21266;
+		  :orbit_stop       =21267;
+
+	 variables:
+	    float x_velocity;
+	          x_velocity:units       = "m/s";
+	          x_velocity:long_name   = "velocity on the x axis";
+	    float y_velocity;
+	          y_velocity:units       = "m/s";
+	          y_velocity:long_name   = "velocity on the y axis";
+	    float z_velocity;
+	          z_velocity:units       = "m/s";
+	          z_velocity:long_name   = "velocity on the z axis";
+	    float x_position;
+	          x_position:units       = "m";
+	          x_position:long_name   = "satellite position on the x axis";
+	    float y_position;
+	          y_position:units       = "m";
+	          y_position:long_name   = "satellite position on the y axis";
+	    float z_position;
+	          z_position:units       = "m";
+	          z_position:long_name   = "satellite position on the z axis";
+	    int   semi_major_axis;
+	          semi_major_axis:units       = "mm";
+	          semi_major_axis:long_name   = "semi major axis";
+	    float inclination;
+	          inclination:units       = "degrees";
+	          inclination:long_name   = "satellite inclination";
+	    float eccentricity;
+	          eccentricity:units       = "degrees";
+	          eccentricity:long_name   = "satellite eccentricity";
+	    float perigee_argument;
+	          perigee_argument:units       = "degrees";
+	          perigee_argument:long_name   = "perigee argument";
+	    float right_ascension;
+	          right_ascension:units       = "degrees";
+	          right_ascension:long_name   = "right ascension";
+	    float mean_anomaly;
+	          mean_anomaly:units       = "degrees";
+	          mean_anomaly:long_name   = "mean anomaly";
+        float earth_sun_distance_ratio;
+	          earth_sun_distance_ratio:units            = "degrees";
+			  earth_sun_distance_ratio:long_name        = "earth sun distance ratio";
+	    float location_tolerance_radial;
+	          location_tolerance_radial:units           = "degrees";
+			  location_tolerance_radial:long_name       = "location tolerance radial";
+        float location_tolerance_crosstrack;
+	          location_tolerance_crosstrack:units       = "m";
+			  location_tolerance_crosstrack:long_name   = "location tolerance crosstrack";
+        float location_tolerance_alongtrack;
+	          location_tolerance_alongtrack:units       = "m";
+			  location_tolerance_alongtrack:long_name   = "location tolerance along track";
+        float yaw_error;
+	          yaw_error:units                           = "degrees";
+			  yaw_error:long_name                       = "yaw error";
+        float roll_error;
+	          roll_error:units                          = "degrees";
+			  roll_error:long_name                      = "roll error";
+        float pitch_error;
+	          pitch_error:units                         = "degrees";
+			  pitch_error:long_name                     = "roll error";
+        f_range_t subsat_latitude;
+	          subsat_latitude:units                     = "degrees";
+			  subsat_latitude:long_name                 = "subsatellite latitude start and end";
+        f_range_t subsat_longitude;
+	          subsat_longitude:units                    = "degrees";
+			  subsat_longitude:long_name                = "subsatellite longitude start and end";
+	           
+	 data:
+	     x_velocity                    = 1418.549;
+	     y_velocity                    = 848.027;
+	     z_velocity                    = 7355.376;
+	     x_position                    = 4865.973;
+	     y_position                    = 6152574.206;
+	     z_position                    = -3742784.424;
+		 semi_major_axis               = 7204683346;
+		 perigee_argument              = 67.634;
+		 inclination                   = 98.715;
+		 eccentricity                  = 0.00113;
+		 right_ascension               = 25.5;
+		 mean_anomaly                  = 292.525;
+		 location_tolerance_crosstrack =0;
+		 location_tolerance_alongtrack =0;
+		 yaw_error                     =0; 
+		 roll_error                    =0; 
+		 pitch_error                   =0;
+		 subsat_latitude               = {-81.314, -76.716};
+		 subsat_longitude              = {-164.53, 141.858};
+
 
     }
 
