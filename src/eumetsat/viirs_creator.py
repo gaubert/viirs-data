@@ -14,6 +14,8 @@ import csv
 import eumetsat.common.num_utils as num_utils
 import eumetsat.common.filesystem_utils as fs_utils
 
+import eumetsat.common.geo_utils as geo_utils
+
 def extract_rest_of_flag(rad_name, rad_num, a_out, a_in):
     """ extract all the quality flags """
     
@@ -253,15 +255,16 @@ def create_tie_points_grid_indexes():
     
     while i < 3200:
         i += 16
-        if i in (1009,2193):
+        if i in (641,1009,2193,2561):
             pixels_index.append(i-1)
         elif i == 3201:
             i = 3200
        
         pixels_index.append(i)
          
-    print("pixel index = %s\n" % (pixels_index) )
+    print("len(pixel_index) = %s, pixel index = %s\n" % (len(pixels_index), pixels_index) )
     
+    print("len(scan_line_index) = %s, scan_line index = %s\n" % (len(scan_lines_index), scan_lines_index) )
     return { "lines" : scan_lines_index, "pixels" : pixels_index}
 
 
@@ -494,7 +497,157 @@ def print_radiances_as_binary():
         
         if nb_good_values == 300:
             sys.exit()
+            
+def check_distances():
+    """
+       check distance between lat-lon points with the different aggregation zones
+    """
+    a_in = h5py.File('/homespace/gaubert/viirs/Mband-SDR/GMODO_npp_d20030125_t0847056_e0848301_b00015_c20090513182937526121_gisf_pop.h5')
         
+    lats = load_array(a_in['All_Data']['VIIRS-MOD-GEO_All']['Latitude'])
+    lons = load_array(a_in['All_Data']['VIIRS-MOD-GEO_All']['Longitude'])
+    
+    index = 0
+    
+    f_d   = open("/tmp/distance_results", "w")
+    f_csv = open("/tmp/distance_results.csv", "w")  
+    
+    #write header
+    for j in xrange(1, len(lats[0])):
+        f_csv.write('pix(%d)-pix(%d), ' % (j, j-1))
+    
+    f_csv.write('\n')
+    
+    print("%s scan lines to write " % (len(lats)))
+    
+    for lat_scan in lats:
+        lon_scan = lons[index]
+        print("======================== Scan line %d ========================\n" % index)
+        f_d.write("======================== Scan line %d ========================\n" % index)
+        
+        for i in xrange(0,len(lat_scan)):
+            
+            if i == 0:
+                continue
+            
+            point1 = (lat_scan[i-1], lon_scan[i-1])
+            point2 = (lat_scan[i], lon_scan[i])
+            
+            distance = geo_utils.distance(point1[0], point1[1], point2[0], point2[1])
+            
+            str_to_write = 'distance(pix(%d)-pix(%d) = %f km' % (i-1, i, distance)
+            #print(str_to_write)
+            #f_d.write('%s\n' % str_to_write)
+            
+            f_csv.write('%f,' % (distance))
+        
+        index += 1
+        f_csv.write('\n')
+        #sys.exit()
+        
+def check_radiance():
+    """
+       Get radiance min max
+    """
+    a_in = h5py.File('/homespace/gaubert/viirs/Mband-SDR/SVM03_npp_d20030125_t0847056_e0848301_b00015_c20090513182937524212_gisf_pop.h5')
+    
+    radiance = load_array(a_in['All_Data']['VIIRS-M3-SDR_All']['Radiance'])
+    
+    f_csv         = open('/tmp/zone1.csv', 'w+')
+    f_csv_histo   = open('/tmp/histo_zone1.csv', 'w+')
+    f_csv_histo_low_gain = open('/tmp/histo_low_gain_zone1.csv', 'w+')
+    f_csv_2 = open('/tmp/zone2.csv', 'w+')
+    f_csv_3 = open('/tmp/zone3.csv', 'w+')
+    f_csv_4 = open('/tmp/zone4.csv', 'w+')
+    f_csv_5 = open('/tmp/zone5.csv', 'w+')
+    
+    
+    #for line_nb in xrange(0, len(radiance)):
+    for line_nb in xrange(16, 32):
+        
+        line = radiance[line_nb]
+        
+        #print("zone1")
+        
+        sub_line = line[0:640]
+        for val in sub_line:
+            if val < -999:
+                val = 0
+            else:
+                if val < 107:
+                    f_csv_histo_low_gain.write('%f\n' % (val))
+                f_csv_histo.write('%f\n' % (val))
+                
+            f_csv.write('%f,' % (val))
+            
+        f_csv.write('\n')
+        
+        #print("zone2")
+        
+        sub_line = line[640:1008]
+        for val in sub_line:
+            if val < -999:
+                val = 0
+            f_csv_2.write('%f,' % (val))
+        f_csv_2.write('\n')
+        
+        #print("zone4")
+        
+        sub_line = line[2192:2561]
+        for val in sub_line:
+            if val < -999:
+                val = 0
+            f_csv_4.write('%f,' % (val))
+        f_csv_4.write('\n')
+        
+        #print("zone5")
+        
+        sub_line = line[2561:3200]
+        for val in sub_line:
+            if val < -999:
+                val = 0
+            f_csv_5.write('%f,' % (val))
+        f_csv_5.write('\n')
+
+def plot_histogram():
+    """
+       histogram with matplot lib
+    """
+    
+    from matplotlib import pyplot as PLT
+
+    with open('/tmp/histo_zone1.csv') as f:
+    #with open('/tmp/histo_low_gain_zone1.csv') as f:
+        v = numpy.loadtxt(f, delimiter=",", dtype='float', comments="#", skiprows=0, usecols=None)
+    
+    v_hist = numpy.ravel(v)   # 'flatten' v
+    
+    print("len(v_hist)=%s\n" % (len(v_hist)))
+    
+    fig = PLT.figure()
+    ax1 = fig.add_subplot(111)
+
+    #n, bins, patches = ax1.hist(v_hist, bins=50, normed=1, facecolor='green')
+    ax1.hist(v_hist, bins=200)
+    PLT.show()
+
+        
+    
+def new_grid_index():
+    """
+       Add stiches after each 16 points
+    """
+    res = []
+    i = 0
+    while i < 3200:
+        i+=1
+        res.append(i)
+        i+=15
+        res.append(i)
+    
+    return res
+       
+    
     
 
 if __name__ == '__main__':
@@ -506,7 +659,15 @@ if __name__ == '__main__':
     #create_tie_points_grid(geo_file)
     
     #print_radiances_as_binary()
-    create_aggregated_viirs_dataset()
+    #create_aggregated_viirs_dataset()
+    
+    #check_distances()
+    #check_radiance()
+    #plot_histogram()
+    n_grid = new_grid_index()
+    print('len(grid) = %d\n grid = %s\n' % (len(n_grid), n_grid))
+    index = create_tie_points_grid_indexes()
+    #print('len(index0=%s' % (len(index)))
     
    
 
