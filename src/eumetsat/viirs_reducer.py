@@ -5,10 +5,16 @@ Created on Mar 5, 2012
 '''
 
 import os
-import numpy
+import numpy as np
 import sys
 import h5py
 import glob
+
+def load_array(ds):
+    a = np.empty(shape=ds.shape, dtype=ds.dtype)
+    a[:] = ds[:]
+    return a
+
 
 class TiePointGridCreatorBase(object):
     
@@ -32,6 +38,7 @@ class TiePointGridCreatorBase(object):
         out['SolarAzimuthAngle']     = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SolarAzimuthAngle'][:]
         out['SatelliteZenithAngle']  = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SatelliteZenithAngle'][:]
         out['SatelliteAzimuthAngle'] = geo_file['All_Data']['VIIRS-MOD-GEO_All']['SatelliteAzimuthAngle'][:]
+        out['QF2_VIIRSSDRGEO']       = geo_file['All_Data']['VIIRS-MOD-GEO_All']['QF2_VIIRSSDRGEO'][:]
         
         return out
     
@@ -47,7 +54,6 @@ class TiePointGridCreatorBase(object):
         out['NumberOfScans_Geo']     = geo_file['All_Data']['VIIRS-MOD-GEO_All']['NumberOfScans'][:]
         out['PadByte1_Geo']          = geo_file['All_Data']['VIIRS-MOD-GEO_All']['PadByte1'][:]
         out['QF1_SCAN_VIIRS_SDRGEO'] = geo_file['All_Data']['VIIRS-MOD-GEO_All']['QF1_SCAN_VIIRSSDRGEO'][:]
-        out['QF2_VIIRSSDRGEO']       = geo_file['All_Data']['VIIRS-MOD-GEO_All']['QF2_VIIRSSDRGEO'][:]
         out['StartTime']             = geo_file['All_Data']['VIIRS-MOD-GEO_All']['StartTime'][:]
         
         return out
@@ -66,12 +72,13 @@ class TiePointGridCreatorBase(object):
         lines   = indexes['lines']
         pixels  = indexes['pixels']
         
-        out_lat    = numpy.empty(( len(indexes['lines']), len(indexes['pixels']) ))
-        out_lon    = numpy.empty(( len(indexes['lines']), len(indexes['pixels']) ))
-        out_sol_za = numpy.empty(( len(indexes['lines']), len(indexes['pixels']) ))
-        out_sol_aa = numpy.empty(( len(indexes['lines']), len(indexes['pixels']) ))
-        out_sat_za = numpy.empty(( len(indexes['lines']), len(indexes['pixels']) ))
-        out_sat_aa = numpy.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_lat               = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_lon               = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_sol_za            = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_sol_aa            = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_sat_za            = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_sat_aa            = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
+        out_qf2_geo           = np.empty(( len(indexes['lines']), len(indexes['pixels']) ))
         
         geo_out = cls.extract_geo_spatial_reducable_data(h5_geo_file)
         
@@ -81,6 +88,7 @@ class TiePointGridCreatorBase(object):
         in_sol_aa = geo_out['SolarAzimuthAngle']
         in_sat_za = geo_out['SatelliteZenithAngle']
         in_sat_aa = geo_out['SatelliteAzimuthAngle']
+        in_qf2    = geo_out['QF2_VIIRSSDRGEO']
         
         out_sat_height = geo_out['Height']
         
@@ -100,9 +108,11 @@ class TiePointGridCreatorBase(object):
                 
                 out_sat_aa[l][p] = in_sat_aa[line_i-1][pixel_i-1]
                 
+                out_qf2_geo[l][p] = in_qf2[line_i-1][pixel_i-1]
+                
                 
         res = {'lat': out_lat, 'lon': out_lon, 'sol_za' : out_sol_za, 'sol_aa' : out_sol_aa, 
-                 'sat_za' : out_sat_za, 'sat_aa': out_sat_aa, 'height': out_sat_height }
+                 'sat_za' : out_sat_za, 'sat_aa': out_sat_aa, 'height': out_sat_height, 'qf2_geo' :  out_qf2_geo}
         
         res.update(cls.extract_additional_geoloc_info(h5_geo_file))
         
@@ -267,6 +277,148 @@ class VIIRSReducer(object):
         """
         return ReduceTiePointGridCreator.create_tie_points_grid(self.list_of_files['geo'])
     
+    
+    def extract_rest_of_flag(self, rad_name, rad_num, a_out, a_in):
+        """ extract all the quality flags """
+        
+        print("Extract quality flags for %s \n" % (os.path.basename(a_in.filename)))
+        
+        data_dir = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num) ]
+        
+        a_out["ModeGran_%s" % (rad_name)]              = data_dir["ModeGran"][:]
+        a_out["ModeScan_%s" % (rad_name)]              = data_dir["ModeScan"][:]
+        a_out["NumberOfBadChecksums_%s" % (rad_name)]  = data_dir["NumberOfBadChecksums"][:]
+        a_out["NumberOfDiscardedPkts_%s" % (rad_name)] = data_dir["NumberOfDiscardedPkts"][:]
+        a_out["NumberOfMissingPkts_%s" % (rad_name)]   = data_dir["NumberOfMissingPkts"][:]
+        a_out["NumberOfScans_%s" % (rad_name)]         = data_dir["NumberOfScans"][:] 
+        a_out["QF1_VIIRSMBANDSDR_%s" % (rad_name)]     = data_dir["QF1_VIIRSMBANDSDR"][:] 
+        a_out["QF2_SCAN_SDR_%s" % (rad_name)]          = data_dir["QF2_SCAN_SDR"][:] 
+        a_out["QF3_SCAN_RDR_%s" % (rad_name)]          = data_dir["QF3_SCAN_RDR"][:] 
+        a_out["QF4_SCAN_SDR_%s" % (rad_name)]          = data_dir["QF4_SCAN_SDR"][:] 
+        a_out["QF5_GRAN_BADDETECTOR_%s" % (rad_name)]  = data_dir["QF5_GRAN_BADDETECTOR"][:] 
+    
+    
+    def get_min_max(self, name, geo_info,x_dim,y_dim, ignore):
+        """ compute variations """
+        
+        #load into a np array
+        flatten_info = load_array(geo_info)
+    
+        
+        flatten_info = flatten_info.reshape(x_dim*y_dim)
+        
+        flatten_info = [x for x in flatten_info if not ignore(x)]
+        
+        print("min %f - max %f" % (min(flatten_info),max(flatten_info)))
+        print("***************\n")
+        
+    def dyn_scale_value(self, radiance, x_dim, y_dim, nb_bits=16):
+        """
+        """
+        
+        flat_info = load_array(radiance)
+        
+        #flat_info = flat_info.reshape(x_dim*y_dim)
+        
+        #create masked array with mask val < -990
+        mask = flat_info < -990
+        masked_arr = np.ma.array(flat_info, mask = mask)
+        
+        max = np.ma.max(masked_arr)
+        min = np.ma.min(masked_arr)
+        
+        scale  = (max-min)/(pow(2,nb_bits)-9)
+        offset = min
+        
+        scaled_arr = (masked_arr - offset)/scale
+        
+        print('original val = %f\n' % (masked_arr[2][1]))
+        
+        print('scaled val = %f\n' % (scaled_arr[2][1]))
+        
+        if nb_bits == 16:
+            #need to round the value because it will fit on a uint16
+            rounded_arr = np.around(scaled_arr,0)
+        elif nb_bits == 32:
+            # round 4 digits after comma
+            rounded_arr = np.around(scaled_arr,4)
+            
+        print('rounded val = %d\n' % (rounded_arr[2][1]))
+        
+        descaled_arr = (rounded_arr * scale) + offset
+        
+        print('descaled val = %f\n' % (descaled_arr[2][1]))
+        
+        return rounded_arr, scale, offset
+        
+    
+    def extract_radiance(self, a_out, a_in):
+        """ extract the radiance from the existing file and create a radiance and radiance_factor param """
+        
+        print("Processing %s \n" % (os.path.basename(a_in.filename)))
+        
+        # get the channel name from the filename. later user the channel number to access the radiance data in each of the files
+        rad_name = os.path.basename(a_in.filename).split("_")[0][2:]
+        
+        if rad_name in ["M10", "M11", "M12", "M13", "M14", "M15", "M16"]:
+            rad_num = rad_name[1:]
+        else:
+            rad_num = rad_name[-1]
+        
+        #get the channel number
+        radiance_factors = None
+        #print("get radiance a_in['All_Data']['VIIRS-M%s-SDR_All']['Radiance']" %(rad_num))
+        radiance = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num)]["Radiance"]
+        if a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num) ].get("RadianceFactors"):
+            radiance_factors = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num)]["RadianceFactors"]
+        else:
+            #print("No Radiance Factor for %s\n" %(os.path.basename(a_in.filename)))
+            pass
+        
+        # quick test convert radiance to uint16 (don't care of the value or the moment)
+        #if rad_num in ('3','4','5','7','13'):
+        #    a_out["Radiance_%s" % (rad_name)] = load_array(radiance).astype('uint16')
+        #else:
+        f32 = np.dtype('<f4')
+        print("dtype = %s\n." %(radiance.dtype))
+        
+        name = "Radiance_%s" % (rad_name)
+        
+        if radiance.dtype == '>f4':
+
+            #calculate dynamic scale factor and offset
+            nb_bits = 16
+            rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits)
+             
+            rounded_arr = rounded_arr.astype('uint16')
+            
+            d_set = a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype)
+            
+            #add scale factor attribute
+            h5py.AttributeManager(d_set).create('scale_factor', scale)
+            #add offset attribute
+            h5py.AttributeManager(d_set).create('offset', offset)
+                      
+        else:
+            
+            def ignore_uint(x):
+                if x > 65530 :
+                    return True
+                else:
+                    return False
+            
+            a_out[name] = radiance[:]
+            #self.get_min_max(name, radiance, 768, 3200, ignore_uint)
+        
+        if radiance_factors:
+            a_out["RadianceFactors_%s" % (rad_name)] = radiance_factors[:]
+            
+        # extract rest of the flag
+        #self.extract_rest_of_flag(rad_name, rad_num, a_out, a_in)
+        
+        return radiance, radiance_factors
+    
+    
     def create_aggregated_viirs_dataset(self, output_filename):
         """
         """
@@ -278,72 +430,77 @@ class VIIRSReducer(object):
         #create file 
         output_file  =  h5py.File(output_filename ,"w")
         
+        geo_grp = output_file.create_group("Geolocation_Information")
+        
         
         #create type
-        f32 = numpy.dtype('<f4')
-        ui16 = numpy.dtype('<u2')
-        i16 = numpy.dtype('<i2')
+        f32 = np.dtype('<f4')
+        ui16 = np.dtype('<u2')
+        i16 = np.dtype('<i2')
         
         #return the geolocation info after the tie-point grid treatment
         geo_info = self.get_reduced_tie_point_grid_info()
         
         print("keys = %s\n" % (geo_info.keys()))
          
-        output_file.create_dataset('Latitude',  data = geo_info['lat'].astype('float32'), dtype = f32)
-        output_file.create_dataset('Longitude', data = geo_info['lon'].astype('float32'), dtype = f32)
+        geo_grp.create_dataset('Latitude',  data = geo_info['lat'].astype('float32'), dtype = f32)
+        geo_grp.create_dataset('Longitude', data = geo_info['lon'].astype('float32'), dtype = f32)
         
        
         # convert solar zenith angle  => Range 0-180
         # convert solar azimuth angle => Range -180-180
-        numpy.around(geo_info['sol_za'], 3, geo_info['sol_za'])
+        np.around(geo_info['sol_za'], 3, geo_info['sol_za'])
         geo_info['sol_za'] *= 1000
         geo_info['sol_za'] = geo_info['sol_za'].astype('uint16')
         out_sol_za = geo_info['sol_za']
-        print("out_sol_za min %d, max %d , range %d\n" % (numpy.min(out_sol_za), numpy.max(out_sol_za), (numpy.max(out_sol_za)- numpy.min(out_sol_za)) ))
+        print("out_sol_za min %d, max %d , range %d\n" % (np.min(out_sol_za), np.max(out_sol_za), (np.max(out_sol_za)- np.min(out_sol_za)) ))
         
-        numpy.around(geo_info['sol_aa'], 2, geo_info['sol_aa'])
+        np.around(geo_info['sol_aa'], 2, geo_info['sol_aa'])
         geo_info['sol_aa'] *= 100
         geo_info['sol_aa'] = geo_info['sol_aa'].astype('int16')
         out_sol_aa = geo_info['sol_aa']
-        print("out_sol_aa min %d, max %d , range %d\n" % (numpy.min(out_sol_aa), numpy.max(out_sol_aa), (numpy.max(out_sol_aa)- numpy.min(out_sol_aa)) ))
+        print("out_sol_aa min %d, max %d , range %d\n" % (np.min(out_sol_aa), np.max(out_sol_aa), (np.max(out_sol_aa)- np.min(out_sol_aa)) ))
         
         # convert sat zenith angle  => Range 0-180
         # convert sat azimuth angle => Range -180-180
         out_sat_za = geo_info['sat_za']
-        numpy.around(out_sat_za, 3, out_sat_za)
+        np.around(out_sat_za, 3, out_sat_za)
         out_sat_za = out_sat_za * 1000
         out_sat_za = out_sat_za.astype('uint16')
-        print("out_sat_za min %d, max %d , range %d\n" % (numpy.min(out_sat_za), numpy.max(out_sat_za), (numpy.max(out_sat_za)- numpy.min(out_sat_za)) ))
+        print("out_sat_za min %d, max %d , range %d\n" % (np.min(out_sat_za), np.max(out_sat_za), (np.max(out_sat_za)- np.min(out_sat_za)) ))
         
         out_sat_aa = geo_info['sat_aa']
-        numpy.around(out_sat_aa, 2, out_sat_aa)
+        np.around(out_sat_aa, 2, out_sat_aa)
         out_sat_aa = out_sat_aa * 100
         out_sat_aa = out_sat_aa.astype('int16')
-        print("out_sat_aa min %d, max %d , range %d\n" % (numpy.min(out_sat_aa), numpy.max(out_sat_aa), (numpy.max(out_sat_aa)- numpy.min(out_sat_aa)) ))
+        print("out_sat_aa min %d, max %d , range %d\n" % (np.min(out_sat_aa), np.max(out_sat_aa), (np.max(out_sat_aa)- np.min(out_sat_aa)) ))
         
-        output_file.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = ui16)
-        output_file.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = i16)
-        output_file.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = ui16)
-        output_file.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = i16)
+        geo_grp.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = ui16)
+        geo_grp.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = i16)
+        geo_grp.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = ui16)
+        geo_grp.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = i16)
+        
+        geo_grp['QF2_VIIRSSDRGEO']       = geo_info['qf2_geo'][:]
         
         # extract the rest from the geolocation file
-        output_file['MidTime']               = geo_info['MidTime'][:]
-        output_file['StartTime']             = geo_info['StartTime'][:]
-        output_file['ModeGran_Geo']          = geo_info['ModeGran_Geo'][:]
-        output_file['ModeScan_Geo']          = geo_info['ModeScan_Geo'][:]
-        output_file['NumberOfScans_Geo']     = geo_info['NumberOfScans_Geo'][:]
-        output_file['QF1_SCAN_VIIRS_SDRGEO'] = geo_info['QF1_SCAN_VIIRS_SDRGEO'][:]
-        output_file['QF2_VIIRSSDRGEO']       = geo_info['QF2_VIIRSSDRGEO'][:]
+        geo_grp['MidTime']               = geo_info['MidTime'][:]
+        geo_grp['StartTime']             = geo_info['StartTime'][:]
+        geo_grp['ModeGran_Geo']          = geo_info['ModeGran_Geo'][:]
+        geo_grp['ModeScan_Geo']          = geo_info['ModeScan_Geo'][:]
+        geo_grp['NumberOfScans_Geo']     = geo_info['NumberOfScans_Geo'][:]
+        geo_grp['QF1_SCAN_VIIRS_SDRGEO'] = geo_info['QF1_SCAN_VIIRS_SDRGEO'][:]
     
-     
-        """for rad_pref in self.RADIANCE_PREFIX_LIST:
+    
+        data_grp = output_file.create_group("Data_Information")
+    
+        for rad_pref in self.RADIANCE_PREFIX_LIST:
             
-            rad_fn = self.list_of_files[rad_pref]
+            rad_fn = self.list_of_files[self.TYPE_LIST[rad_pref]]
             
             input_file   =  h5py.File(rad_fn ,"r")
             
-            extract_radiance(output_file, input_file)   
-        """ 
+            self.extract_radiance(data_grp, input_file)   
+         
             
         output_file.close()
                 

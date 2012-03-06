@@ -118,9 +118,7 @@ def extract_radiance(a_out, a_in):
     name = "Radiance_%s" % (rad_name)
     
     if radiance.dtype == '>f4':
-        print("In there")
         a_out.create_dataset(name, data=radiance[:], dtype = radiance.dtype)
-        #create_csv("/tmp/%s.csv" % (name), radiance, 3200, 768)
         
         def ignore_float(x):
             if x < -990:
@@ -129,8 +127,8 @@ def extract_radiance(a_out, a_in):
                 return False
         
         
-        #get_min_max(name, radiance, 768, 3200, ignore_float)
-        plot(name, radiance,768, 3200)
+        get_min_max(name, radiance, 768, 3200, ignore_float)
+        #plot(name, radiance,768, 3200)
         
     #print("chunk = %s compression = %s\n" % (a_out["RadianceFactors_%s" % (rad_name)].chunks, a_out["RadianceFactors_%s" % (rad_name)].compression))
     #print("dtype = %s. chunk = %s compression = %s. dir(radiance) = %s\n" % (radiance.dtype, radiance.chunks, radiance.compression, dir(radiance)))
@@ -143,7 +141,7 @@ def extract_radiance(a_out, a_in):
                 return False
         
         a_out[name] = radiance[:]
-        #get_min_max(name, radiance, 768, 3200, ignore_uint)
+        get_min_max(name, radiance, 768, 3200, ignore_uint)
     
     if radiance_factors:
         a_out["RadianceFactors_%s" % (rad_name)] = radiance_factors[:]
