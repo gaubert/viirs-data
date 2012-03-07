@@ -9,11 +9,43 @@ import numpy as np
 import sys
 import h5py
 import glob
+import time
 
 def load_array(ds):
     a = np.empty(shape=ds.shape, dtype=ds.dtype)
     a[:] = ds[:]
     return a
+
+def plot_radiance_values(rad_arr1, rad_arr2):
+    """
+      plot the radiance values exculding fill values
+    """
+    from matplotlib import pyplot as PLT
+    
+    vals_1 = np.ravel(rad_arr1)
+    vals_2 = np.ravel(rad_arr2)
+    
+    mask = vals_1 < -990
+    vals_1 = np.ma.array(vals_1, mask = mask)
+    
+    mask_2 = vals_2 < -990
+    vals_2 = np.ma.array(vals_2, mask = mask_2)
+    
+    #fig = PLT.figure()
+    #ax1 = fig.add_subplot(111)
+    
+    res = abs(vals_2 - vals_1)
+    #ax1.plot(res,'r-')
+    
+    print("max difference between unscaled and original value = %f" % (np.ma.max(res)))
+    print("min difference between unscaled and original value = %f" % (np.ma.min(res)))
+    
+    #x1.plot(vals_1,'r-')
+    #ax1.plot(vals_2,'-')
+    #fig.show()
+    
+    #time.sleep(20)
+                
 
 
 class TiePointGridCreatorBase(object):
@@ -118,6 +150,40 @@ class TiePointGridCreatorBase(object):
         
         return res
     
+class FullGridCreator(TiePointGridCreatorBase):
+    """
+       Functor creating a Full Grid from a geolocation file
+    """
+    
+    @classmethod
+    def create_tie_points_grid_indexes(cls):
+        """
+           Create tie point zone grid index
+        """
+        # create scan_line_index
+        scan_lines_index = []
+        
+        i = 0
+        while i < 768:
+            i += 1
+            scan_lines_index.append(i)
+        
+        print("scan_lines = %s\n" %(scan_lines_index))
+        
+        pixels_index     = []
+        
+        i = 0
+         
+        while i < 3200:
+            i += 1    
+            pixels_index.append(i)
+             
+        print("len(pixel_index) = %s, pixel index = %s\n" % (len(pixels_index), pixels_index) )
+        
+        print("len(scan_line_index) = %s, scan_line index = %s\n" % (len(scan_lines_index), scan_lines_index) )
+        
+        return { "lines" : scan_lines_index, "pixels" : pixels_index}
+    
 
 class TiePointZoneGridCreator(TiePointGridCreatorBase):
     """
@@ -144,7 +210,6 @@ class TiePointZoneGridCreator(TiePointGridCreatorBase):
         pixels_index     = []
         
         i = 0
-        pixels_index.append(i)
         
         while i < 3200:
             i += 1    
@@ -271,6 +336,12 @@ class VIIRSReducer(object):
         """
         return TiePointZoneGridCreator.create_tie_points_grid(self.list_of_files['geo'])
     
+    def get_full_grid_info(self):
+        """
+           return full grid
+        """
+        return FullGridCreator.create_tie_points_grid(self.list_of_files['geo'])
+    
     def get_reduced_tie_point_grid_info(self):
         """
            return the reduced tie-point grid information (lat, lon, solar_azimuth_angle, solar_zenith_angle, satellite_azimuth_angle, satellite_zenith_angle, 
@@ -297,21 +368,7 @@ class VIIRSReducer(object):
         a_out["QF4_SCAN_SDR_%s" % (rad_name)]          = data_dir["QF4_SCAN_SDR"][:] 
         a_out["QF5_GRAN_BADDETECTOR_%s" % (rad_name)]  = data_dir["QF5_GRAN_BADDETECTOR"][:] 
     
-    
-    def get_min_max(self, name, geo_info,x_dim,y_dim, ignore):
-        """ compute variations """
-        
-        #load into a np array
-        flatten_info = load_array(geo_info)
-    
-        
-        flatten_info = flatten_info.reshape(x_dim*y_dim)
-        
-        flatten_info = [x for x in flatten_info if not ignore(x)]
-        
-        print("min %f - max %f" % (min(flatten_info),max(flatten_info)))
-        print("***************\n")
-        
+
     def dyn_scale_value(self, radiance, x_dim, y_dim, nb_bits=16):
         """
         """
@@ -347,6 +404,8 @@ class VIIRSReducer(object):
         
         descaled_arr = (rounded_arr * scale) + offset
         
+        plot_radiance_values(masked_arr[0:10], descaled_arr[0:10])
+        
         print('descaled val = %f\n' % (descaled_arr[2][1]))
         
         return rounded_arr, scale, offset
@@ -375,10 +434,6 @@ class VIIRSReducer(object):
             #print("No Radiance Factor for %s\n" %(os.path.basename(a_in.filename)))
             pass
         
-        # quick test convert radiance to uint16 (don't care of the value or the moment)
-        #if rad_num in ('3','4','5','7','13'):
-        #    a_out["Radiance_%s" % (rad_name)] = load_array(radiance).astype('uint16')
-        #else:
         f32 = np.dtype('<f4')
         print("dtype = %s\n." %(radiance.dtype))
         
@@ -388,9 +443,13 @@ class VIIRSReducer(object):
 
             #calculate dynamic scale factor and offset
             nb_bits = 16
-            rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits)
-             
+            rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
             rounded_arr = rounded_arr.astype('uint16')
+            
+            #on 32 bits
+            #nb_bits = 32
+            #rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
+            #rounded_arr = rounded_arr.astype('int32')
             
             d_set = a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype)
             
@@ -439,7 +498,9 @@ class VIIRSReducer(object):
         i16 = np.dtype('<i2')
         
         #return the geolocation info after the tie-point grid treatment
-        geo_info = self.get_reduced_tie_point_grid_info()
+        #geo_info = self.get_reduced_tie_point_grid_info()
+        geo_info = self.get_full_grid_info()
+        #geo_info = self.get_tie_point_zone_grid_info()
         
         print("keys = %s\n" % (geo_info.keys()))
          
@@ -503,7 +564,9 @@ class VIIRSReducer(object):
          
             
         output_file.close()
-                
+        
+
+
 
 if __name__ == '__main__':
     
@@ -511,15 +574,18 @@ if __name__ == '__main__':
     
     files = reducer.locate_files_for_granule('/homespace/gaubert/viirs/Mband-SDR', 'd20030125_t0847056_e0848301_b00015')
     
-    info = reducer.get_reduced_tie_point_grid_info()
+    #info = reducer.get_reduced_tie_point_grid_info()
     
-    print("nb_points for reduced grid = %d\n" % ( len(info['lat']) * len(info['lat'][0])))
+    #print("nb_points for reduced grid = %d\n" % ( len(info['lat']) * len(info['lat'][0])))
     
-    info = reducer.get_tie_point_zone_grid_info()
+    #info = reducer.get_tie_point_zone_grid_info()
     
-    print("nb_points for reduced grid = %d\n" % ( len(info['lat']) * len(info['lat'][0])))
+    #print("nb_points for tie-point zone grid = %d\n" % ( len(info['lat']) * len(info['lat'][0])))
     
+    #create eumetsat regional file
     reducer.create_aggregated_viirs_dataset('/tmp/eumetsat_regional_viirs.h5')
+    
+    #calculate deviation
     
     
     
