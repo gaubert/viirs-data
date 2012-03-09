@@ -442,9 +442,12 @@ class VIIRSReducer(object):
         if radiance.dtype == '>f4':
 
             #calculate dynamic scale factor and offset
-            nb_bits = 16
-            rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
-            rounded_arr = rounded_arr.astype('uint16')
+            #nb_bits = 16
+            #rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
+            #rounded_arr = rounded_arr.astype('uint16')
+            
+            rounded_arr = radiance
+            
             
             #on 32 bits
             #nb_bits = 32
@@ -454,25 +457,19 @@ class VIIRSReducer(object):
             d_set = a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype)
             
             #add scale factor attribute
-            h5py.AttributeManager(d_set).create('scale_factor', scale)
+            #h5py.AttributeManager(d_set).create('scale_factor', scale)
             #add offset attribute
-            h5py.AttributeManager(d_set).create('offset', offset)
+            #h5py.AttributeManager(d_set).create('offset', offset)
                       
         else:
-            
-            def ignore_uint(x):
-                if x > 65530 :
-                    return True
-                else:
-                    return False
-            
             a_out[name] = radiance[:]
             #self.get_min_max(name, radiance, 768, 3200, ignore_uint)
         
-        if radiance_factors:
-            a_out["RadianceFactors_%s" % (rad_name)] = radiance_factors[:]
+        #if radiance_factors:
+            #a_out["RadianceFactors_%s" % (rad_name)] = radiance_factors[:]
             
         # extract rest of the flag
+        #if rad_num == '3':
         #self.extract_rest_of_flag(rad_name, rad_num, a_out, a_in)
         
         return radiance, radiance_factors
@@ -510,36 +507,40 @@ class VIIRSReducer(object):
        
         # convert solar zenith angle  => Range 0-180
         # convert solar azimuth angle => Range -180-180
-        np.around(geo_info['sol_za'], 3, geo_info['sol_za'])
-        geo_info['sol_za'] *= 1000
-        geo_info['sol_za'] = geo_info['sol_za'].astype('uint16')
+        #np.around(geo_info['sol_za'], 3, geo_info['sol_za'])
+        #geo_info['sol_za'] *= 1000
+        #geo_info['sol_za'] = geo_info['sol_za'].astype('uint16')
         out_sol_za = geo_info['sol_za']
         print("out_sol_za min %d, max %d , range %d\n" % (np.min(out_sol_za), np.max(out_sol_za), (np.max(out_sol_za)- np.min(out_sol_za)) ))
         
-        np.around(geo_info['sol_aa'], 2, geo_info['sol_aa'])
-        geo_info['sol_aa'] *= 100
-        geo_info['sol_aa'] = geo_info['sol_aa'].astype('int16')
+        #np.around(geo_info['sol_aa'], 2, geo_info['sol_aa'])
+        #geo_info['sol_aa'] *= 100
+        #geo_info['sol_aa'] = geo_info['sol_aa'].astype('int16')
         out_sol_aa = geo_info['sol_aa']
         print("out_sol_aa min %d, max %d , range %d\n" % (np.min(out_sol_aa), np.max(out_sol_aa), (np.max(out_sol_aa)- np.min(out_sol_aa)) ))
         
         # convert sat zenith angle  => Range 0-180
         # convert sat azimuth angle => Range -180-180
         out_sat_za = geo_info['sat_za']
-        np.around(out_sat_za, 3, out_sat_za)
-        out_sat_za = out_sat_za * 1000
-        out_sat_za = out_sat_za.astype('uint16')
+        #np.around(out_sat_za, 3, out_sat_za)
+        #out_sat_za = out_sat_za * 1000
+        #out_sat_za = out_sat_za.astype('uint16')
         print("out_sat_za min %d, max %d , range %d\n" % (np.min(out_sat_za), np.max(out_sat_za), (np.max(out_sat_za)- np.min(out_sat_za)) ))
         
         out_sat_aa = geo_info['sat_aa']
-        np.around(out_sat_aa, 2, out_sat_aa)
-        out_sat_aa = out_sat_aa * 100
-        out_sat_aa = out_sat_aa.astype('int16')
+        #np.around(out_sat_aa, 2, out_sat_aa)
+        #out_sat_aa = out_sat_aa * 100
+        #out_sat_aa = out_sat_aa.astype('int16')
         print("out_sat_aa min %d, max %d , range %d\n" % (np.min(out_sat_aa), np.max(out_sat_aa), (np.max(out_sat_aa)- np.min(out_sat_aa)) ))
         
-        geo_grp.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = ui16)
-        geo_grp.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = i16)
-        geo_grp.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = ui16)
-        geo_grp.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = i16)
+        #utype = ui16
+        #type  = i16
+        utype = f32
+        type  = f32
+        geo_grp.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = utype)
+        geo_grp.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = type)
+        geo_grp.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = utype)
+        geo_grp.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = type)
         
         geo_grp['QF2_VIIRSSDRGEO']       = geo_info['qf2_geo'][:]
         
