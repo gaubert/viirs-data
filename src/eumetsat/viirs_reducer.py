@@ -377,6 +377,8 @@ class VIIRSReducer(object):
         
         #flat_info = flat_info.reshape(x_dim*y_dim)
         
+        min = np.ma.min(flat_info)
+        
         #create masked array with mask val < -990
         mask = flat_info < -990
         masked_arr = np.ma.array(flat_info, mask = mask)
@@ -409,7 +411,72 @@ class VIIRSReducer(object):
         print('descaled val = %f\n' % (descaled_arr[2][1]))
         
         return rounded_arr, scale, offset
+    
+    def extract_reflectance_or_bt(self, a_out, a_in):
+        """ extract the reflectance or brigthness temp """
         
+        print("Processing %s \n" % (os.path.basename(a_in.filename)))
+        
+        # get the channel name from the filename. later user the channel number to access the radiance data in each of the files
+        rad_name = os.path.basename(a_in.filename).split("_")[0][2:]
+        
+        if rad_name in ["M10", "M11", "M12", "M13", "M14", "M15", "M16"]:
+            rad_num = rad_name[1:]
+        else:
+            rad_num = rad_name[-1]
+            
+            
+        data_factors = None
+        data = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num)].get("Reflectance", None)
+        data_type = "Reflectance"
+        
+        #not reflectance so get the brightness temperature
+        if not data:
+            data      = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num)].get("BrightnessTemperature", None)
+            data_type = "BrightnessTemperature"
+            
+        if not data:
+            raise Exception("Cannot find Brightness temperature or Reflectance in %s" % (a_in.filename))
+        
+        #get scale factors if any
+        if a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num) ].get("%sFactors" % (data_type)):
+            data_factors = a_in['All_Data']['VIIRS-M%s-SDR_All' % (rad_num)]["%sFactors" % (data_type)]
+                
+        f32 = np.dtype('<f4')
+        print("dtype = %s\n." %(data.dtype))
+        
+        name = "%s_%s" % (data_type, rad_name)
+        
+        if data.dtype == '>f4':
+
+            #calculate dynamic scale factor and offset
+            #nb_bits = 16
+            #rounded_arr, scale , offset = self.dyn_scale_value(data, 768, 3200, nb_bits) 
+            #data_factors = [scale, offset]
+            #rounded_arr = rounded_arr.astype('uint16')
+            
+            rounded_arr = data
+            #on 32 bits
+            nb_bits = 32
+            rounded_arr, scale , offset = self.dyn_scale_value(data, 768, 3200, nb_bits) 
+            rounded_arr = rounded_arr.astype('int32')
+            
+            d_set = a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype)
+                      
+        else:
+            a_out[name] = data[:]
+        
+        if data_factors:
+            #add scale factor attribute
+            h5py.AttributeManager(a_out[name]).create('scale_factor', data_factors[0])
+            #add offset attribute
+            h5py.AttributeManager(a_out[name]).create('offset', data_factors[1])
+            
+        # extract rest of the flag
+        #if rad_num == '3':
+        #self.extract_rest_of_flag(rad_name, rad_num, a_out, a_in)
+        
+        return data, data_factors
     
     def extract_radiance(self, a_out, a_in):
         """ extract the radiance from the existing file and create a radiance and radiance_factor param """
@@ -561,7 +628,8 @@ class VIIRSReducer(object):
             
             input_file   =  h5py.File(rad_fn ,"r")
             
-            self.extract_radiance(data_grp, input_file)   
+            #self.extract_radiance(data_grp, input_file)
+            self.extract_reflectance_or_bt(data_grp, input_file)
          
             
         output_file.close()
