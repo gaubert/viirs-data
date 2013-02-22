@@ -280,6 +280,7 @@ class ReduceTiePointGridCreator(TiePointGridCreatorBase):
 class VIIRSReducer(object):
     
     GEO  = 'GMODO_npp'
+    GEO_CORR = 'GMTCO_npp'
     M1   = 'SVM01_npp'
     M2   = 'SVM02_npp'
     M3   = 'SVM03_npp'
@@ -302,7 +303,7 @@ class VIIRSReducer(object):
     PREFIX_LIST = [GEO]
     PREFIX_LIST.extend(RADIANCE_PREFIX_LIST)
     
-    TYPE_LIST  = { GEO : 'geo', M1 : 'm1', M2 : 'm2', M3 : 'm3', M4 : 'm4', M5 : 'm5', M6 : 'm6', \
+    TYPE_LIST  = { GEO_CORR: 'geo', GEO : 'geo', M1 : 'm1', M2 : 'm2', M3 : 'm3', M4 : 'm4', M5 : 'm5', M6 : 'm6', \
                    M7: 'm7', M8 : 'm8', M9 : 'm9', M10 : 'm10', M11 : 'm11', M12 : 'm12', M13 : 'm13', \
                    M14: 'm14', M15 : 'm15', M16 : 'm16'}
     
@@ -412,7 +413,7 @@ class VIIRSReducer(object):
         
         return rounded_arr, scale, offset
     
-    def extract_reflectance_or_bt(self, a_out, a_in):
+    def extract_reflectance_or_bt(self, a_out, a_in, compression, compression_opts):
         """ extract the reflectance or brigthness temp """
         
         print("Processing %s \n" % (os.path.basename(a_in.filename)))
@@ -450,21 +451,21 @@ class VIIRSReducer(object):
         if data.dtype == '>f4':
 
             #calculate dynamic scale factor and offset
-            #nb_bits = 16
-            #rounded_arr, scale , offset = self.dyn_scale_value(data, 768, 3200, nb_bits) 
-            #data_factors = [scale, offset]
-            #rounded_arr = rounded_arr.astype('uint16')
+            nb_bits = 16
+            rounded_arr, scale , offset = self.dyn_scale_value(data, 768, 3200, nb_bits) 
+            data_factors = [scale, offset]
+            rounded_arr = rounded_arr.astype('uint16')
             
             rounded_arr = data
             #on 32 bits
-            nb_bits = 32
-            rounded_arr, scale , offset = self.dyn_scale_value(data, 768, 3200, nb_bits) 
-            rounded_arr = rounded_arr.astype('int32')
+            #nb_bits = 32
+            #rounded_arr, scale , offset = self.dyn_scale_value(data, 768, 3200, nb_bits) 
+            #rounded_arr = rounded_arr.astype('int32')
             
-            d_set = a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype)
+            a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype, compression = compression, compression_opts = compression_opts)
                       
         else:
-            a_out[name] = data[:]
+            a_out.create_dataset(name, data=data[:], dtype = data.dtype, compression = compression, compression_opts = compression_opts)
         
         if data_factors:
             #add scale factor attribute
@@ -478,7 +479,7 @@ class VIIRSReducer(object):
         
         return data, data_factors
     
-    def extract_radiance(self, a_out, a_in):
+    def extract_radiance(self, a_out, a_in, compression, compression_opts):
         """ extract the radiance from the existing file and create a radiance and radiance_factor param """
         
         print("Processing %s \n" % (os.path.basename(a_in.filename)))
@@ -506,34 +507,30 @@ class VIIRSReducer(object):
         
         name = "Radiance_%s" % (rad_name)
         
-        if radiance.dtype == '>f4':
+        if radiance.dtype == f32:
 
             #calculate dynamic scale factor and offset
-            #nb_bits = 16
-            #rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
-            #rounded_arr = rounded_arr.astype('uint16')
+            nb_bits = 16
+            rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
+            radiance_factors = [scale, offset]
+            rounded_arr = rounded_arr.astype('uint16')
             
-            rounded_arr = radiance
-            
-            
+            #rounded_arr = radiance
             #on 32 bits
             #nb_bits = 32
             #rounded_arr, scale , offset = self.dyn_scale_value(radiance, 768, 3200, nb_bits) 
             #rounded_arr = rounded_arr.astype('int32')
             
-            d_set = a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype)
-            
-            #add scale factor attribute
-            #h5py.AttributeManager(d_set).create('scale_factor', scale)
-            #add offset attribute
-            #h5py.AttributeManager(d_set).create('offset', offset)
+            a_out.create_dataset(name, data=rounded_arr[:], dtype = rounded_arr.dtype, compression = compression, compression_opts = compression_opts)
                       
         else:
-            a_out[name] = radiance[:]
-            #self.get_min_max(name, radiance, 768, 3200, ignore_uint)
-        
-        #if radiance_factors:
-            #a_out["RadianceFactors_%s" % (rad_name)] = radiance_factors[:]
+            a_out.create_dataset(name, data = radiance[:], dtype = radiance.dtype, compression = compression, compression_opts = compression_opts)
+            
+        if radiance_factors:
+            #add scale factor attribute
+            h5py.AttributeManager(a_out[name]).create('scale_factor', radiance_factors[0])
+            #add offset attribute
+            h5py.AttributeManager(a_out[name]).create('offset', radiance_factors[1])
             
         # extract rest of the flag
         #if rad_num == '3':
@@ -545,7 +542,10 @@ class VIIRSReducer(object):
     def create_aggregated_viirs_dataset(self, output_filename):
         """
         """
-    
+        #compression = 'gzip'
+        #compression_opts = 4
+        compression = None
+        compression_opts = None
         dir  = "/homespace/gaubert/viirs/Mband-SDR"
         file = "SVM01_npp_d20030125_t0847056_e0848301_b00015_c20090513182937523620_gisf_pop.h5"
         geo_file     = h5py.File("%s/%s" %(dir,"GMODO_npp_d20030125_t0847056_e0848301_b00015_c20090513182937526121_gisf_pop.h5"))
@@ -562,54 +562,55 @@ class VIIRSReducer(object):
         i16 = np.dtype('<i2')
         
         #return the geolocation info after the tie-point grid treatment
-        #geo_info = self.get_reduced_tie_point_grid_info()
-        geo_info = self.get_full_grid_info()
+        geo_info = self.get_reduced_tie_point_grid_info()
+        #geo_info = self.get_full_grid_info()
         #geo_info = self.get_tie_point_zone_grid_info()
         
         print("keys = %s\n" % (geo_info.keys()))
          
-        geo_grp.create_dataset('Latitude',  data = geo_info['lat'].astype('float32'), dtype = f32)
-        geo_grp.create_dataset('Longitude', data = geo_info['lon'].astype('float32'), dtype = f32)
+        geo_grp.create_dataset('Latitude',  data = geo_info['lat'].astype('float32'), dtype = f32, compression = compression, compression_opts = compression_opts)
+        geo_grp.create_dataset('Longitude', data = geo_info['lon'].astype('float32'), dtype = f32, compression = compression, compression_opts = compression_opts)
         
        
         # convert solar zenith angle  => Range 0-180
         # convert solar azimuth angle => Range -180-180
-        #np.around(geo_info['sol_za'], 3, geo_info['sol_za'])
-        #geo_info['sol_za'] *= 1000
-        #geo_info['sol_za'] = geo_info['sol_za'].astype('uint16')
+        np.around(geo_info['sol_za'], 3, geo_info['sol_za'])
+        geo_info['sol_za'] *= 1000
+        geo_info['sol_za'] = geo_info['sol_za'].astype('uint16')
         out_sol_za = geo_info['sol_za']
         print("out_sol_za min %d, max %d , range %d\n" % (np.min(out_sol_za), np.max(out_sol_za), (np.max(out_sol_za)- np.min(out_sol_za)) ))
         
-        #np.around(geo_info['sol_aa'], 2, geo_info['sol_aa'])
-        #geo_info['sol_aa'] *= 100
-        #geo_info['sol_aa'] = geo_info['sol_aa'].astype('int16')
+        np.around(geo_info['sol_aa'], 2, geo_info['sol_aa'])
+        geo_info['sol_aa'] *= 100
+        geo_info['sol_aa'] = geo_info['sol_aa'].astype('int16')
         out_sol_aa = geo_info['sol_aa']
         print("out_sol_aa min %d, max %d , range %d\n" % (np.min(out_sol_aa), np.max(out_sol_aa), (np.max(out_sol_aa)- np.min(out_sol_aa)) ))
         
         # convert sat zenith angle  => Range 0-180
         # convert sat azimuth angle => Range -180-180
         out_sat_za = geo_info['sat_za']
-        #np.around(out_sat_za, 3, out_sat_za)
-        #out_sat_za = out_sat_za * 1000
-        #out_sat_za = out_sat_za.astype('uint16')
+        np.around(out_sat_za, 3, out_sat_za)
+        out_sat_za = out_sat_za * 1000
+        out_sat_za = out_sat_za.astype('uint16')
         print("out_sat_za min %d, max %d , range %d\n" % (np.min(out_sat_za), np.max(out_sat_za), (np.max(out_sat_za)- np.min(out_sat_za)) ))
         
         out_sat_aa = geo_info['sat_aa']
-        #np.around(out_sat_aa, 2, out_sat_aa)
-        #out_sat_aa = out_sat_aa * 100
-        #out_sat_aa = out_sat_aa.astype('int16')
+        np.around(out_sat_aa, 2, out_sat_aa)
+        out_sat_aa = out_sat_aa * 100
+        out_sat_aa = out_sat_aa.astype('int16')
         print("out_sat_aa min %d, max %d , range %d\n" % (np.min(out_sat_aa), np.max(out_sat_aa), (np.max(out_sat_aa)- np.min(out_sat_aa)) ))
         
-        #utype = ui16
-        #type  = i16
-        utype = f32
-        type  = f32
-        geo_grp.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = utype)
-        geo_grp.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = type)
-        geo_grp.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = utype)
-        geo_grp.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = type)
+        utype = ui16
+        type  = i16
+        #utype = f32
+        #type  = f32
+        geo_grp.create_dataset('SolarZenithAngle',      data = out_sol_za, dtype = utype, compression = compression, compression_opts = compression_opts)
+        geo_grp.create_dataset('SolarAzimuthAngle',     data = out_sol_aa, dtype = type, compression = compression, compression_opts = compression_opts)
+        geo_grp.create_dataset('SatelliteZenithAngle',  data = out_sat_za, dtype = utype, compression = compression, compression_opts = compression_opts)
+        geo_grp.create_dataset('SatelliteAzimuthAngle', data = out_sat_aa, dtype = type, compression = compression, compression_opts = compression_opts)
         
-        geo_grp['QF2_VIIRSSDRGEO']       = geo_info['qf2_geo'][:]
+        geo_grp.create_dataset('QF2_VIIRSSDRGEO', data = geo_info['qf2_geo'].astype('uint16'), dtype = ui16, compression = compression, compression_opts = compression_opts)
+        #geo_grp['QF2_VIIRSSDRGEO']       = geo_info['qf2_geo'][:]
         
         # extract the rest from the geolocation file
         geo_grp['MidTime']               = geo_info['MidTime'][:]
@@ -628,8 +629,8 @@ class VIIRSReducer(object):
             
             input_file   =  h5py.File(rad_fn ,"r")
             
-            #self.extract_radiance(data_grp, input_file)
-            self.extract_reflectance_or_bt(data_grp, input_file)
+            self.extract_radiance(data_grp, input_file, compression, compression_opts)
+            #self.extract_reflectance_or_bt(data_grp, input_file, compression, compression_opts)
          
             
         output_file.close()
@@ -641,20 +642,18 @@ if __name__ == '__main__':
     
     reducer = VIIRSReducer()
     
-    files = reducer.locate_files_for_granule('/homespace/gaubert/viirs/Mband-SDR', 'd20030125_t0847056_e0848301_b00015')
+    granules_name = ['d20120224_t1821456_e1823098_b01694', 'd20120224_t1823110_e1824352_b01694', 'd20120224_t1826018_e1827260_b01694', 'd20120224_t1827272_e1828514_b01694']
     
-    #info = reducer.get_reduced_tie_point_grid_info()
     
-    #print("nb_points for reduced grid = %d\n" % ( len(info['lat']) * len(info['lat'][0])))
-    
-    #info = reducer.get_tie_point_zone_grid_info()
-    
-    #print("nb_points for tie-point zone grid = %d\n" % ( len(info['lat']) * len(info['lat'][0])))
-    
-    #create eumetsat regional file
-    reducer.create_aggregated_viirs_dataset('/tmp/eumetsat_regional_viirs.h5')
-    
-    #calculate deviation
+    for granule_name in granules_name:
+        
+        print("Reduce %s\n" % (granule_name))
+        
+        files = reducer.locate_files_for_granule('/homespace/gaubert/viirs/real-data', granule_name)
+        #files = reducer.locate_files_for_granule('/data/viirs-npp', granule_name)
+        
+        #create eumetsat regional file
+        reducer.create_aggregated_viirs_dataset('/tmp/reduced_day_eum_reg_%s.h5' % (granule_name))
     
     
     

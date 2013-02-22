@@ -34,5 +34,9 @@ def distance(lat1, lon1, lat2, lon2):
     c     = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
     
     return R * c
+
+if __name__ == '__main__':
+    print(deg_to_rad(65.45674723))
             
-    
+
+
